@@ -37,18 +37,23 @@ const branches: Branch[] = [
     id: "laiq-ali-chowk",
     label: "Branch 1",
     name: "Laiq Ali Chowk",
-    street: "Laiq Ali Chowk",
+    street: "Shop-07, Laiq Ali Chowk",
     area: "Wah Cantt",
-    geo: { lat: 0, lng: 0, confirmed: false },
-    mapsUrl: "",
+    /** Pin from the Google Business Profile listing "My Mechanic Auto Workshop (EFI & Hybrid Specialists)" (plus code QQ83+GH). */
+    geo: { lat: 33.7663133, lng: 72.7539142, confirmed: true },
+    mapsUrl: "https://maps.google.com/?cid=15759953553984945602",
   },
   {
     id: "new-city",
     label: "Branch 2",
     name: "New City Phase-1",
-    street: "New City Phase-1, Main GT Road",
+    street: "Shop No. 19, Taj Market, New City Phase-1",
     area: "Wah Cantt",
-    /** Pin from the Google Business Profile listing "My Mecahinc.pk (Branch-2)". */
+    /**
+     * Pin from the Google listing "My Mecahinc.pk (Branch-2)" (plus code QQ34+X9).
+     * Google currently shows this listing as "Permanently closed" — the owner confirmed the
+     * branch is open, so they should correct it in Google Business Profile.
+     */
     geo: { lat: 33.7549993, lng: 72.7558992, confirmed: true },
     mapsUrl: "https://maps.google.com/?cid=6405627770873787592",
   },
@@ -60,11 +65,13 @@ export const client = {
   /* ---------------------------------------------------------------- Identity */
   name: "My Mechanic.pk",
   legalName: "My Mechanic.pk",
-  tagline: "Auto Workshop in Wah Cantt",
+  tagline: "EFI & Hybrid Specialists in Wah Cantt since 1998",
   description:
-    "My Mechanic.pk is a car repair and maintenance workshop with two branches in Wah Cantt — Laiq Ali Chowk and New City Phase-1 on Main GT Road — offering computerized diagnostics, EFI and engine repair, AC servicing, brakes, suspension and routine maintenance for drivers across Wah Cantt and Taxila.",
-  /** Year the business was established. Leave null until the owner confirms it. */
-  foundingYear: null as number | null,
+    "My Mechanic.pk is a car repair and maintenance workshop in Wah Cantt, established in 1998, with two branches — Shop-07, Laiq Ali Chowk and Taj Market, New City Phase-1. EFI and hybrid specialists offering computerized diagnostics, engine repair, tuning, AC servicing, brakes, suspension, maintenance and customization for drivers across Wah Cantt and Taxila.",
+  /** Year the business was established (confirmed by the owner). */
+  foundingYear: 1998 as number | null,
+  /** "27+ years in business", as stated by the owner. */
+  yearsInBusiness: "27+",
 
   /** Public site URL. NEXT_PUBLIC_SITE_URL overrides this at build time. */
   siteUrl: "https://www.mymechanic.pk",
@@ -97,10 +104,10 @@ export const client = {
 
   branches,
 
-  /** Primary address — Branch 2, which has the Google listing. Used for schema and single-address spots. */
+  /** Primary address — Branch 1, the main Google listing. Used for schema and single-address spots. */
   address: {
-    street: "Main GT Road",
-    area: "New City Phase-1",
+    street: "Shop-07",
+    area: "Laiq Ali Chowk",
     city: "Wah Cantt",
     region: "Punjab",
     postalCode: "47040",
@@ -122,19 +129,25 @@ export const client = {
    */
   googleReviewUrl: primaryBranch.mapsUrl,
 
+  /**
+   * Google rating of the main listing (Branch 1), shown as a badge with a link to read the
+   * reviews on Google. Update when it changes. Not used for structured data.
+   */
+  googleRating: { value: 4.6, count: 134, checked: "2026-10" },
+
   /* ------------------------------------------------------------------ Hours */
   hours: {
-    /** Set to true only after the owner confirms these times. */
-    confirmed: false,
-    note: "Please call or WhatsApp before visiting — opening hours are being confirmed.",
+    /** From the Branch 1 Google Business Profile (October 2026). */
+    confirmed: true,
+    note: "Please call or WhatsApp before visiting on public holidays.",
     days: [
-      { day: "Monday", schemaDay: "Monday" },
-      { day: "Tuesday", schemaDay: "Tuesday" },
-      { day: "Wednesday", schemaDay: "Wednesday" },
-      { day: "Thursday", schemaDay: "Thursday" },
-      { day: "Friday", schemaDay: "Friday" },
-      { day: "Saturday", schemaDay: "Saturday" },
-      { day: "Sunday", schemaDay: "Sunday" },
+      { day: "Monday", schemaDay: "Monday", opens: "08:00", closes: "21:00" },
+      { day: "Tuesday", schemaDay: "Tuesday", opens: "08:00", closes: "21:00" },
+      { day: "Wednesday", schemaDay: "Wednesday", opens: "08:00", closes: "21:00" },
+      { day: "Thursday", schemaDay: "Thursday", opens: "08:00", closes: "21:00" },
+      { day: "Friday", schemaDay: "Friday", closed: true },
+      { day: "Saturday", schemaDay: "Saturday", opens: "08:00", closes: "21:00" },
+      { day: "Sunday", schemaDay: "Sunday", opens: "08:00", closes: "21:00" },
     ] as DayHours[],
   },
 
@@ -151,7 +164,7 @@ export const client = {
   serviceAreas: {
     primary: ["Wah Cantt", "Taxila"],
     /** Nearby localities mentioned in copy. Keep to areas the workshop genuinely serves. */
-    nearby: ["Laiq Ali Chowk", "New City Phase-1 & 2", "Main GT Road", "Wah Model Town", "Hasan Abdal", "Sangjani"],
+    nearby: ["Laiq Ali Chowk", "New City Phase-1 & 2", "Taj Market", "GT Road", "Wah Model Town", "Hasan Abdal", "Sangjani"],
   },
 
   /* ------------------------------------------------------------ Brand colors */
@@ -171,9 +184,11 @@ export const client = {
     defaultTitle: "My Mechanic.pk | Car Repair Workshop in Wah Cantt",
     titleTemplate: "%s | My Mechanic.pk",
     defaultDescription:
-      "Car repair and maintenance in Wah Cantt with two branches — Laiq Ali Chowk and New City Phase-1, GT Road. Computerized scanning, EFI, engine, AC, brakes and suspension.",
+      "EFI & hybrid specialists in Wah Cantt since 1998. Two branches — Laiq Ali Chowk and New City Phase-1. Computerized scanning, engine, tuning, AC, brakes and suspension. Rated 4.6★ on Google.",
     keywords: [
       "car mechanic Wah Cantt",
+      "EFI specialist Wah Cantt",
+      "hybrid car repair Wah Cantt",
       "car repair workshop Wah Cantt",
       "auto workshop New City Wah",
       "car mechanic Laiq Ali Chowk",
@@ -197,7 +212,7 @@ export const client = {
   },
 
   /** Last date the legal pages were reviewed. */
-  legalUpdated: "2026-09-30",
+  legalUpdated: "2026-10-06",
 } as const;
 
 /**
@@ -205,15 +220,14 @@ export const client = {
  * Surfaced in CLIENT-CHECKLIST.md — keep the two in sync.
  */
 export const pendingConfirmation = [
-  "WhatsApp number (currently assumed to be the same as the phone, 0312-5045678)",
-  "Opening hours for each branch (client.hours)",
-  "Full street address and map pin for Branch 1, Laiq Ali Chowk (client.branches)",
+  "Branch 2 hours, if different from Branch 1 (client.hours uses the Branch 1 Google listing)",
+  "Fix Branch 2's \"Permanently closed\" status and the \"Mecahinc\" spelling on Google Business Profile",
+  "Phone numbers on the Google listing (+92 300 5147210) and shop sign (0300-5147250) differ from the site's 0312-5045678",
   "Services actually offered and any specialist equipment (src/data/services.ts)",
   "Business email address (client.email)",
-  "Year established (client.foundingYear)",
   "Direct Google \"write a review\" link (client.googleReviewUrl currently opens the Maps listing)",
   "Whether emergency breakdown assistance is offered (services.ts → emergency-breakdown-assistance)",
-  "Workshop photographs and videos of both branches",
+  "Which photos belong to which branch (gallery captions currently say \"our workshop\")",
   "Technician names, qualifications and experience (About page)",
   "Final domain name (client.siteUrl)",
 ] as const;

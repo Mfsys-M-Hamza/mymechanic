@@ -15,7 +15,7 @@ export function BrandFilm() {
             id="brand-title"
             eyebrow={`Meet ${client.name}`}
             title={<>Your mechanic, <span className="brand-text">two branches</span> in Wah Cantt</>}
-            intro="Honest diagnosis, clear estimates and careful repairs — whether you drop in at Laiq Ali Chowk or at New City Phase-1 on Main GT Road. One number reaches both branches."
+            intro="Since 1998 — over 27 years of honest diagnosis, clear estimates and careful repairs, whether you drop in at Laiq Ali Chowk or at Taj Market, New City Phase-1. One number reaches both branches."
           />
           <ul className="reveal reveal-left mt-8 grid gap-4 sm:grid-cols-2">
             {client.branches.map((b, i) => (

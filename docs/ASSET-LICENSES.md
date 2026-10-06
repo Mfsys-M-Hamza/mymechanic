@@ -12,6 +12,7 @@ hero car illustration, which is third-party stock from Vexels** (see the first r
 | Asset | Location | Source | Licence / status |
 |---|---|---|---|
 | Hero car illustration (side view, yellow coupé SUV) | `assets/source/hero-car.jpg` → `public/media/hero-car.png` (cut-out) and `public/media/hero-car-holo.png` (hologram version), via `scripts/build-hero-car.mjs` | Vexels (vexels.com), supplied by the client as a watermarked preview | **Licence not yet confirmed.** Credited on the page under the hero ("Car illustration: Vexels"). Replace with the licensed download before launch (see note above). |
+| Workshop photos (12) | `assets/media/*.jpg` → `public/media/*.webp` via `npm run media` | The client's own Instagram posts (@mymechanic.pk), downloaded October 2026 | Client-owned. Used on the client's own website. |
 | My Mechanic.pk logo pack (transparent, dark, white, yellow; PNG and SVG) | `assets/source/logo-pack/`, `assets/source/logo-original.png` (the transparent-for-dark-bg version) | Supplied by the client | Client-owned. Used with permission. |
 | Animated logo film | `assets/media/logo-animation.mp4` → `public/media/logo-animation.mp4` + poster | Supplied by the client; poster frame grabbed by `scripts/build-media.mjs` | Client-owned. Used with permission. |
 | Transparent logo, favicons, app icons | `public/brand/*`, `src/app/icon.png`, `src/app/apple-icon.png` | Generated from the client logo by `scripts/build-assets.mjs` (trimmed only; not recoloured or distorted) | Client-owned (derivative of the supplied logo) |

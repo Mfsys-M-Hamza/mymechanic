@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { client } from "@/config/client";
-import { about } from "@/data/content";
+import { about, galleryItems } from "@/data/content";
 import { pageMetadata } from "@/lib/seo";
+import { asset } from "@/lib/basePath";
 import { PageHero } from "@/components/ui/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ContactButtons } from "@/components/ui/ContactButtons";
@@ -14,20 +16,21 @@ import type { VisualKey } from "@/data/services";
 export const metadata: Metadata = pageMetadata({
   title: "About My Mechanic.pk — Car Workshop in Wah Cantt",
   description:
-    "My Mechanic.pk is a car repair workshop with two branches in Wah Cantt — Laiq Ali Chowk and New City Phase-1, GT Road — built around computerized diagnostics, transparent estimates and reliable repairs.",
+    "My Mechanic.pk has repaired cars in Wah Cantt since 1998 — 27+ years in business. EFI & hybrid specialists with two branches, at Laiq Ali Chowk and Taj Market, New City Phase-1.",
   path: "/about",
 });
 
 const valueIcons: VisualKey[] = ["inspection", "scanner", "gear", "electrical"];
 
 export default function AboutPage() {
+  const [teamPhoto, shopPhoto] = ["p5", "p3"].map((id) => galleryItems.find((g) => g.id === id));
   return (
     <>
       <PageHero
         crumbs={[{ name: "About", path: "/about" }]}
         eyebrow={`${client.foundingYear ? `Est. ${client.foundingYear} · ` : ""}Two branches in Wah Cantt`}
         title={<>About <span className="brand-text">{client.name}</span></>}
-        intro={<p>A modern car workshop in Wah Cantt that believes you should understand the problem before you pay for the repair.</p>}
+        intro={<p>{client.yearsInBusiness} years of car repair in Wah Cantt — EFI and hybrid specialists who believe you should understand the problem before you pay for the repair.</p>}
         visual="gear"
       />
 
@@ -38,11 +41,24 @@ export default function AboutPage() {
             <SectionHeading id="story-title" eyebrow="Our story" title={<>Built around <span className="brand-text">diagnosis</span></>} />
             <div className="prose-garage reveal mt-6">{about.story.map((p) => <p key={p}>{p}</p>)}</div>
           </div>
-          <div className="reveal relative">
-            <div className="absolute inset-0 bg-[radial-gradient(circle,rgb(245_179_1/.12),transparent_65%)]" aria-hidden="true" />
-            <Animated className="relative mx-auto max-w-[440px]">
-              <MechanicalArt kind="gear" className="h-auto w-full" label="Animated illustration of turning workshop gears" />
-            </Animated>
+          <div className="reveal reveal-right relative mx-auto w-full max-w-[460px]">
+            <div className="absolute -inset-6 bg-[radial-gradient(circle,rgb(245_179_1/.16),transparent_65%)]" aria-hidden="true" />
+            {teamPhoto?.src && shopPhoto?.src ? (
+              <div className="relative pb-16 pr-16">
+                <Image src={asset(teamPhoto.src)} alt={teamPhoto.alt} width={teamPhoto.width} height={teamPhoto.height} sizes="(min-width: 1024px) 380px, 80vw" className="card aspect-[4/5] w-full object-cover" />
+                <Image src={asset(shopPhoto.src)} alt={shopPhoto.alt} width={shopPhoto.width} height={shopPhoto.height} sizes="220px" className="card absolute bottom-0 right-0 aspect-square w-[52%] border-4 border-ink object-cover" />
+                {client.foundingYear && (
+                  <p className="absolute left-4 top-4 rounded-xl bg-brand px-4 py-2 text-center font-display font-extrabold uppercase leading-none text-[#111111] shadow-deep">
+                    <span className="block text-xs tracking-[.2em]">Est.</span>
+                    <span className="text-3xl">{client.foundingYear}</span>
+                  </p>
+                )}
+              </div>
+            ) : (
+              <Animated className="relative mx-auto max-w-[440px]">
+                <MechanicalArt kind="gear" className="h-auto w-full" label="Animated illustration of turning workshop gears" />
+              </Animated>
+            )}
           </div>
         </div>
       </section>

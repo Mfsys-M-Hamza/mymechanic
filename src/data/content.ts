@@ -6,7 +6,15 @@ import type { VisualKey } from "./services";
 export const homeFaqs = [
   {
     q: "Where is My Mechanic.pk located?",
-    a: "We have two branches in Wah Cantt: Branch 1 at Laiq Ali Chowk and Branch 2 at New City Phase-1, Main GT Road. Use the directions buttons on the Contact page to navigate to either one.",
+    a: "We have two branches in Wah Cantt: Branch 1 at Shop-07, Laiq Ali Chowk and Branch 2 at Shop No. 19, Taj Market, New City Phase-1. Use the directions buttons on the Contact page to navigate to either one.",
+  },
+  {
+    q: "How long have you been in business?",
+    a: "My Mechanic was established in 1998 — more than 27 years of repairing and maintaining cars in Wah Cantt. Today we specialise in EFI and hybrid vehicles alongside general mechanical work.",
+  },
+  {
+    q: "What are your opening hours?",
+    a: "Saturday to Thursday, 8 AM to 9 PM. We are closed on Fridays. Call or WhatsApp 0312-5045678 before visiting on public holidays.",
   },
   {
     q: "Do you publish repair prices?",
@@ -29,8 +37,8 @@ export const homeFaqs = [
 export const whyChooseUs: { title: string; text: string; icon: VisualKey }[] = [
   { title: "Diagnosis before repair", text: "We scan and test first, so you pay to fix the real problem — not for guesswork.", icon: "scanner" },
   { title: "Transparent estimates", text: "You get a clear explanation and estimate before work begins. Nothing is done without your approval.", icon: "inspection" },
-  { title: "Modern & hybrid ready", text: "EFI, computerized tuning and hybrid systems are part of our everyday work.", icon: "hybrid" },
-  { title: "One-stop workshop", text: "Engine, electrical, AC, brakes, suspension and servicing under one roof, at two branches in Wah Cantt.", icon: "gear" },
+  { title: "EFI & hybrid specialists", text: "EFI, computerized tuning and hybrid systems are part of our everyday work — backed by experience since 1998.", icon: "hybrid" },
+  { title: "One-stop workshop", text: "Maintenance, repair and customization — engine, electrical, AC, brakes and suspension at two branches in Wah Cantt.", icon: "gear" },
 ];
 
 export const processSteps = [
@@ -42,14 +50,14 @@ export const processSteps = [
 ];
 
 /**
- * Stats shown on the home page. Only verifiable facts — do not add
- * "cars serviced" or "years of experience" until the business supplies real numbers.
+ * Stats shown on the home page. Only verifiable facts — established year and years in
+ * business confirmed by the owner; rating from the Branch 1 Google listing (Oct 2026).
  */
 export const stats = [
+  { value: "1998", label: "Established" },
+  { value: "27+", label: "Years in business" },
+  { value: "4.6★", label: "Google rating · 134 reviews" },
   { value: "2", label: "Branches in Wah Cantt" },
-  { value: "16", label: "Workshop services" },
-  { value: "OBD", label: "Computerized scanning" },
-  { value: "1", label: "Number for both branches" },
 ];
 
 /**
@@ -72,7 +80,28 @@ export type Review = {
   reviewerNote?: string;
   vehicle?: string;
 };
-export const reviews: Review[] = [];
+/** Full, untruncated reviews from the Branch 2 Google listing (copied October 2026). Star ratings not captured. */
+export const reviews: Review[] = [
+  {
+    name: "Muhammad Abbas",
+    text: "Great Service, Experienced Staff. They clearly explained what needed to be done and gave a fair estimate. Highly Recommended!!",
+    date: "2025-10",
+    source: "Google",
+  },
+  {
+    name: "Muhammad Ashraf",
+    text: "Mr. Shoib, the chief mechanic is very professional also his team. The quality of work is very good, neat and clean. They are cooperative too.",
+    date: "2025-11",
+    source: "Google",
+    reviewerNote: "Local Guide",
+  },
+  {
+    name: "Ahmed Ali",
+    text: "I am very satisfied with the service nd the machinc is also very cooperative.",
+    date: "2026-03",
+    source: "Google",
+  },
+];
 
 /**
  * Gallery. Authentic workshop photos and videos come first; the remaining entries
@@ -97,7 +126,20 @@ export type GalleryItem = {
   height?: number;
 };
 
+/** Real photos from the workshop's Instagram (@mymechanic.pk), October 2026. */
 export const galleryItems: GalleryItem[] = [
+  { id: "p1", category: "Workshop", title: "Our workshop", alt: "My Mechanic.pk workshop front with its yellow sign and a Liqui Moly motor-oil banner, a white Toyota Yaris parked in the service bay", visual: "gear", illustration: false, src: "/media/yaris-in-bay.webp", width: 1080, height: 1917, service: "suspension-repair" },
+  { id: "p2", category: "Diagnostics", title: "Computerized diagnostics", alt: "Technician at the diagnostic computer inside the workshop, with shelves of oils and parts behind", visual: "scanner", illustration: false, src: "/media/diagnostic-computer.webp", width: 1080, height: 1920, service: "computerized-scanning" },
+  { id: "p3", category: "Workshop", title: "Motor oils, additives & car care", alt: "My Mechanic.pk sign above a blue Liqui Moly 'Motor oils, additives, car care' banner at the shop entrance", visual: "oil", illustration: false, src: "/media/shop-sign-liqui-moly.webp", width: 1080, height: 1350, service: "oil-filter-change" },
+  { id: "p4", category: "Repairs", title: "Cylinder head work", alt: "Mechanic's hands working on an engine block with the cylinder head removed", visual: "engine", illustration: false, src: "/media/engine-head-work.webp", width: 640, height: 1136, service: "engine-diagnostics" },
+  { id: "p5", category: "Workshop", title: "Our team at work", alt: "Two My Mechanic technicians working under the open bonnet of a car outside the workshop", visual: "gear", illustration: false, src: "/media/technicians-at-work.webp", width: 640, height: 1136, service: "general-inspection" },
+  { id: "p6", category: "Workshop", title: "Oils & fluids ready for a service", alt: "Engine oil, coolant and filters on a yellow trolley beside a car with its bonnet open", visual: "oil", illustration: false, src: "/media/oil-service-cart.webp", width: 1080, height: 1920, service: "preventive-maintenance" },
+  { id: "p7", category: "Repairs", title: "Valve train inspection", alt: "Exposed camshaft and valve train of an engine during inspection", visual: "engine", illustration: false, src: "/media/camshaft-valve-train.webp", width: 640, height: 1136, service: "engine-tuning" },
+  { id: "p8", category: "Diagnostics", title: "Suzuki Cultus PCV valve issue", alt: "Mechanic checking the PCV valve on a Suzuki Cultus engine", visual: "scanner", illustration: false, src: "/media/pcv-valve.webp", width: 720, height: 1280, service: "efi-specialist" },
+  { id: "p9", category: "Repairs", title: "Toyota Vitz suspension check", alt: "Engine bay of a Toyota Vitz during a suspension and engine-mount check", visual: "suspension", illustration: false, src: "/media/vitz-engine-bay.webp", width: 720, height: 1280 },
+  { id: "p10", category: "Workshop", title: "Coolant service", alt: "Mechanic topping up coolant in an engine bay", visual: "engine", illustration: false, src: "/media/coolant-service.webp", width: 640, height: 1136, service: "ac-heater-maintenance" },
+  { id: "p11", category: "Workshop", title: "Outside the workshop", alt: "My Mechanic.pk shop front with its sign and banner, a customer's car parked in front", visual: "gear", illustration: false, src: "/media/shopfront-cultus.webp", width: 640, height: 1136 },
+  { id: "p12", category: "Workshop", title: "Customers' cars at the shop", alt: "A white Mercedes-Benz parked outside the My Mechanic workshop", visual: "gear", illustration: false, src: "/media/shopfront-mercedes.webp", width: 1080, height: 1350 },
   { id: "g1", category: "Diagnostics", title: "Computerized OBD scanning", alt: "Illustration of a diagnostic scanner showing live engine data", visual: "scanner", illustration: true },
   { id: "g2", category: "Diagnostics", title: "Electrical fault tracing", alt: "Illustration of an electrical circuit being tested", visual: "electrical", illustration: true },
   { id: "g3", category: "Workshop", title: "Engine bay work", alt: "Illustration of a car engine with moving pistons", visual: "engine", illustration: true },
@@ -116,9 +158,9 @@ export const galleryItems: GalleryItem[] = [
  */
 export const about = {
   story: [
-    "My Mechanic.pk is an auto workshop in Wah Cantt, now with two branches — Laiq Ali Chowk and New City Phase-1 on Main GT Road — built on a simple idea: drivers deserve a workshop that explains what is wrong with their car before asking them to pay for a repair.",
-    "Cars have changed. Electronic fuel injection, engine computers, hybrid systems and dozens of sensors mean that many faults can no longer be found by ear alone. We set up the workshop around computerized diagnostics so that every job starts with evidence.",
-    "We build our reputation one car at a time — which is why we focus on clear communication, honest advice and work you can check.",
+    "My Mechanic has been repairing cars in Wah Cantt since 1998 — more than 27 years in business. Today we run two branches, at Shop-07, Laiq Ali Chowk and at Taj Market, New City Phase-1, specialising in automotive maintenance, repair and customization.",
+    "Cars have changed a lot since we opened. Electronic fuel injection, engine computers, hybrid systems and dozens of sensors mean that many faults can no longer be found by ear alone. That is why we became EFI and hybrid specialists and built every job around computerized diagnostics — so each repair starts with evidence.",
+    "Our customers rate us 4.6★ on Google from more than 130 reviews. We keep that reputation one car at a time, with clear communication, honest advice and work you can check.",
   ],
   mission:
     "To give drivers in Wah Cantt and Taxila accurate diagnosis, reliable repairs and straightforward advice — so they can make informed decisions about their vehicles.",

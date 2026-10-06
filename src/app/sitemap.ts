@@ -6,13 +6,14 @@ import { absUrl } from "@/lib/seo";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const launch = "2026-09-30";
+  const launch = "2026-10-06";
   const pages: { path: string; priority: number; freq: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
     { path: "/", priority: 1, freq: "weekly" },
     { path: "/services", priority: 0.9, freq: "monthly" },
     { path: "/book-appointment", priority: 0.9, freq: "yearly" },
     { path: "/about", priority: 0.7, freq: "yearly" },
     { path: "/contact", priority: 0.8, freq: "yearly" },
+    { path: "/spare-parts", priority: 0.8, freq: "monthly" },
     { path: "/gallery", priority: 0.5, freq: "monthly" },
     { path: "/reviews", priority: 0.5, freq: "monthly" },
     { path: "/blog", priority: 0.7, freq: "weekly" },

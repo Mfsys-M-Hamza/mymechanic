@@ -13,6 +13,7 @@ import { CtaBand } from "@/components/ui/CtaBand";
 import { ReviewsBlock } from "@/components/sections/ReviewsBlock";
 import { ServiceArea } from "@/components/sections/ServiceArea";
 import { BrandFilm } from "@/components/sections/BrandFilm";
+import { WorkshopPhotos } from "@/components/sections/WorkshopPhotos";
 import { Animated } from "@/components/visuals/Animated";
 import { MechanicalArt } from "@/components/visuals/Mechanical";
 import { ArrowRightIcon, ShieldIcon } from "@/components/Icons";
@@ -36,7 +37,7 @@ export default function HomePage() {
         </div>
         <div className="container-x relative grid items-center gap-10 pb-16 pt-10 md:pt-14 lg:grid-cols-[1.15fr_1fr] lg:pb-24 lg:pt-16">
           <div>
-            <p className="eyebrow rise">Wah Cantt · Laiq Ali Chowk &amp; New City</p>
+            <p className="eyebrow rise">Since {client.foundingYear} · {client.yearsInBusiness} years in Wah Cantt</p>
             <h1 id="hero-title" className="rise mt-4 text-[2.6rem] font-extrabold uppercase leading-[.95] sm:text-6xl lg:text-7xl" style={{ ["--d" as string]: "90ms" }}>
               <span className="metal-text">Professional Auto Repair</span>{" "}
               <span className="brand-text">&amp; Advanced Vehicle Services</span>
@@ -47,7 +48,7 @@ export default function HomePage() {
             </p>
             <ContactButtons className="rise mt-8" />
             <ul className="rise mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-mist" style={{ ["--d" as string]: "320ms" }}>
-              {["Two branches in Wah Cantt", "Computerized scanning & diagnostics", "Estimate before any repair"].map((t) => (
+              {["EFI & hybrid specialists", "4.6★ on Google · 134 reviews", "Two branches in Wah Cantt"].map((t) => (
                 <li key={t} className="flex items-center gap-2"><ShieldIcon width={18} height={18} className="text-brand" />{t}</li>
               ))}
             </ul>
@@ -144,6 +145,8 @@ export default function HomePage() {
           </dl>
         </div>
       </section>
+
+      <WorkshopPhotos />
 
       {/* ------------------------------------------------------- Reviews */}
       <section className="section" aria-labelledby="reviews-title">

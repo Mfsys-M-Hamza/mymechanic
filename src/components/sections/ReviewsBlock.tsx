@@ -50,8 +50,30 @@ export function ReviewsBlock({ limit }: { limit?: number }) {
     );
   }
 
+  const g = client.googleRating;
   return (
     <>
+      {g && (
+        <div className="reveal card mb-6 flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center gap-5">
+            <p className="font-display text-6xl font-extrabold leading-none brand-text">{g.value.toFixed(1)}</p>
+            <div>
+              <div className="flex gap-0.5 text-brand" role="img" aria-label={`Rated ${g.value} out of 5 on Google`}>
+                {[1, 2, 3, 4, 5].map((n) => (
+                  <StarIcon key={n} width={20} height={20} className={n <= Math.floor(g.value) ? "" : g.value - Math.floor(g.value) >= 0.25 && n === Math.floor(g.value) + 1 ? "opacity-60" : "opacity-25"} />
+                ))}
+              </div>
+              <p className="mt-1 font-semibold text-white">{g.count} Google reviews</p>
+              <p className="text-sm text-metal">Main branch, Laiq Ali Chowk</p>
+            </div>
+          </div>
+          {client.googleBusinessProfileUrl && (
+            <a href={client.googleBusinessProfileUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline self-start sm:self-auto">
+              Read all reviews on Google
+            </a>
+          )}
+        </div>
+      )}
       <div className="grid items-start gap-5 md:grid-cols-2 lg:grid-cols-3">
         {list.map((r, i) => (
           <figure key={`${r.name}-${r.date}`} className="reveal card p-6" style={{ ["--d" as string]: `${(i % 3) * 90}ms` }}>

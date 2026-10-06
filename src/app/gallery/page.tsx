@@ -8,7 +8,7 @@ import { CtaBand } from "@/components/ui/CtaBand";
 export const metadata: Metadata = pageMetadata({
   title: "Workshop Gallery — Diagnostics, Repairs & Maintenance",
   description:
-    "Illustrations of the diagnostics, repairs and maintenance at My Mechanic.pk, car workshop in Wah Cantt. Workshop photos from both branches coming soon.",
+    "Real photos from My Mechanic.pk in Wah Cantt — our workshop, diagnostics and repairs in progress — plus illustrations of the services we offer.",
   path: "/gallery",
 });
 
@@ -20,7 +20,7 @@ export default function GalleryPage() {
         crumbs={[{ name: "Gallery", path: "/gallery" }]}
         eyebrow="Gallery"
         title={<>Workshop <span className="brand-text">gallery</span></>}
-        intro={<p>Illustrations of the diagnostics, repairs and maintenance we do. Photos from our Wah Cantt branches are coming soon.</p>}
+        intro={<p>Real photos from our workshop — the team at work, diagnostics and repairs in progress — plus illustrations of the services we offer. Follow us on Instagram for daily updates.</p>}
         visual="brake"
       />
       <section className="section pt-12" aria-label="Gallery">

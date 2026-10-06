@@ -11,7 +11,7 @@ import { ClockIcon, DirectionsIcon, PhoneIcon, PinIcon, WhatsAppIcon, socialIcon
 export const metadata: Metadata = pageMetadata({
   title: "Contact My Mechanic.pk — Car Workshop in Wah Cantt",
   description:
-    "Contact My Mechanic.pk at Laiq Ali Chowk or New City Phase-1, Main GT Road, Wah Cantt. Call or WhatsApp 0312-5045678. Get directions to either branch.",
+    "Contact My Mechanic.pk at Shop-07, Laiq Ali Chowk or Taj Market, New City Phase-1, Wah Cantt. Call or WhatsApp 0312-5045678. Open Sat–Thu 8 AM–9 PM. Get directions to either branch.",
   path: "/contact",
 });
 

@@ -28,10 +28,10 @@ const WHITE = 232; // channel threshold treated as "background white"
 /** Region (fractions of the source) holding the logo mark used for favicons. Tuned for the current logo. */
 const ICON_REGION = { left: 0.33, top: 0.07, width: 0.35, height: 0.322 };
 const OG_TEXT = {
-  line1: "Car Repair & Maintenance",
-  line2: "Two Branches in Wah Cantt",
-  line3: "Laiq Ali Chowk · New City Phase-1, GT Road",
-  line4: "Call / WhatsApp 0312-5045678",
+  line1: "EFI & Hybrid Specialists",
+  line2: "Wah Cantt · Since 1998",
+  line3: "Laiq Ali Chowk · Taj Market, New City Phase-1",
+  line4: "4.6★ Google · Call / WhatsApp 0312-5045678",
 };
 
 const { data: srcData, info: srcInfo } = await sharp(SRC).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
