@@ -2,7 +2,7 @@
  * Brand asset pipeline.
  *
  * Takes the client's original logo (assets/source/logo-original.png) and produces:
- *  - public/brand/logo.webp / logo.png   trimmed logo (proportions untouched)
+ *  - public/brand/mm-logo.webp / mm-logo.png   trimmed logo (rename when the logo changes, so caches refresh) (proportions untouched)
  *  - src/app/icon.png / apple-icon.png   favicons generated from the logo mark
  *  - public/brand/og-image.jpg           1200x630 social sharing image
  *
@@ -19,14 +19,12 @@
  * Then copy the printed logo size into client.logo.width/height.
  */
 import sharp from "sharp";
-import { access, mkdir } from "node:fs/promises";
+import { mkdir } from "node:fs/promises";
 
 const SRC = "assets/source/logo-original.png";
-/** Optional logo variant for the light theme (same canvas as SRC, dark lettering). */
-const LIGHT_SRC = "assets/source/logo-light.png";
 const WHITE = 232; // channel threshold treated as "background white"
 /** Region (fractions of the source) holding the logo mark used for favicons. Tuned for the current logo. */
-const ICON_REGION = { left: 0.33, top: 0.07, width: 0.35, height: 0.322 };
+const ICON_REGION = { left: 0.31, top: 0.215, width: 0.33, height: 0.215 };
 const OG_TEXT = {
   line1: "EFI & Hybrid Specialists",
   line2: "Wah Cantt · Since 1998",
@@ -142,20 +140,9 @@ const meta = await sharp(logo).metadata();
 console.log(`mode: ${alphaMode ? "already transparent" : whiteMode ? "transparent (white background removed)" : `tile (background rgb ${bg.join(",")})`}`);
 console.log(`trimmed logo: ${meta.width}x${meta.height} → client.logo = { width: 640, height: ${Math.round((640 * meta.height) / meta.width)} }`);
 
-await sharp(logo).resize({ width: 640 }).webp({ quality: 90, alphaQuality: 95 }).toFile("public/brand/logo.webp");
-await sharp(logo).resize({ width: 640 }).png({ compressionLevel: 9 }).toFile("public/brand/logo.png");
-await sharp(logo).resize({ width: 220 }).webp({ quality: 90 }).toFile("public/brand/logo-sm.webp");
-
-// Light-theme logo: cropped with the same box so both variants share one size.
-const hasLight = await access(LIGHT_SRC).then(() => true, () => false);
-if (hasLight && logoBox) {
-  const lm = await sharp(LIGHT_SRC).metadata();
-  if (lm.width === W && lm.height === H) {
-    const light = await sharp(LIGHT_SRC).extract(logoBox).png().toBuffer();
-    await sharp(light).resize({ width: 640 }).webp({ quality: 90, alphaQuality: 95 }).toFile("public/brand/logo-light.webp");
-    console.log("light logo: public/brand/logo-light.webp");
-  } else console.warn(`skipped ${LIGHT_SRC}: size ${lm.width}x${lm.height} does not match ${W}x${H}`);
-}
+await sharp(logo).resize({ width: 640 }).webp({ quality: 90, alphaQuality: 95 }).toFile("public/brand/mm-logo.webp");
+await sharp(logo).resize({ width: 640 }).png({ compressionLevel: 9 }).toFile("public/brand/mm-logo.png");
+await sharp(logo).resize({ width: 220 }).webp({ quality: 90 }).toFile("public/brand/mm-logo-sm.webp");
 
 // Favicons. Coloured-background logos use the mark on its own colour, full-bleed;
 // transparent logos sit centred on a dark tile so they read at 16-32px.

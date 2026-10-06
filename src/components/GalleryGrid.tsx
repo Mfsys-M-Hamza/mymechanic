@@ -97,7 +97,7 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
   return (
     <>
       <div role="group" aria-label="Filter gallery by category" className="flex flex-wrap gap-2">
-        {CATEGORIES.map((c) => (
+        {CATEGORIES.filter((c) => c === "All" || items.some((i) => i.category === c)).map((c) => (
           <button
             key={c}
             type="button"
@@ -145,7 +145,7 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
           role="dialog"
           aria-modal="true"
           aria-label={current.title}
-          className="theme-dark fixed inset-0 z-[70] flex flex-col bg-black/92 backdrop-blur-md"
+          className="fixed inset-0 z-[70] flex flex-col bg-black/92 backdrop-blur-md"
           onClick={(e) => e.target === e.currentTarget && close()}
         >
           <div className="flex items-center justify-between gap-4 p-4">

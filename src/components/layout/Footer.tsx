@@ -100,7 +100,16 @@ export function Footer() {
           </ul>
         </div>
         <p className="container-x border-t border-white/5 py-4 text-center text-xs text-metal">
-          Developed by <span className="font-semibold text-mist">WideWeb Technologies</span> · Contact:{" "}
+          Developed by{" "}
+          <a
+            href="https://www.widewebtechnologies.site/"
+            target="_blank"
+            rel="noopener"
+            className="font-semibold text-mist underline decoration-white/25 underline-offset-2 hover:text-brand hover:decoration-brand"
+          >
+            WideWeb Technologies
+          </a>{" "}
+          · Contact:{" "}
           <a href="tel:+923040500121" className="whitespace-nowrap hover:text-brand">+92 3040500121</a>
         </p>
       </div>

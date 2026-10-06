@@ -11,8 +11,6 @@ import { ParallaxManager } from "@/components/ParallaxManager";
 import { SvgDefs } from "@/components/visuals/Mechanical";
 import { JsonLd } from "@/components/JsonLd";
 import { absUrl, businessSchema, websiteSchema } from "@/lib/seo";
-import { themeBootScript } from "@/lib/theme";
-import { InlineScript } from "@/components/InlineScript";
 
 const barlow = Barlow_Condensed({ subsets: ["latin"], weight: ["600", "700", "800"], variable: "--font-barlow", display: "swap" });
 // Body font uses "optional": no late font-swap repaint, so text paints once (better LCP on slow mobiles).
@@ -40,18 +38,14 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: client.colors.background,
-  colorScheme: "dark light",
+  colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    // suppressHydrationWarning: the boot script may set data-theme before React hydrates.
-    <html lang="en-PK" className={`${barlow.variable} ${inter.variable}`} suppressHydrationWarning>
-      <head>
-        <InlineScript html={themeBootScript} />
-      </head>
+    <html lang="en-PK" className={`${barlow.variable} ${inter.variable}`}>
       <body className="flex min-h-dvh flex-col">
         <a href="#main" className="skip-link">Skip to main content</a>
         <SvgDefs />

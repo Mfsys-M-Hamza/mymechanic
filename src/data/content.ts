@@ -104,8 +104,7 @@ export const reviews: Review[] = [
 ];
 
 /**
- * Gallery. Authentic workshop photos and videos come first; the remaining entries
- * use the site's own illustrations and are clearly captioned as illustrations.
+ * Gallery: real workshop photos only (no illustrations).
  * To add media: drop the original in assets/media, run `npm run media`, then add an
  * entry with `src` (photo, or the video's poster), `width`, `height`, `video` for a clip,
  * and `service` (a service slug) to also show it on that service's page.
@@ -140,15 +139,6 @@ export const galleryItems: GalleryItem[] = [
   { id: "p10", category: "Workshop", title: "Coolant service", alt: "Mechanic topping up coolant in an engine bay", visual: "engine", illustration: false, src: "/media/coolant-service.webp", width: 640, height: 1136, service: "ac-heater-maintenance" },
   { id: "p11", category: "Workshop", title: "Outside the workshop", alt: "My Mechanic.pk shop front with its sign and banner, a customer's car parked in front", visual: "gear", illustration: false, src: "/media/shopfront-cultus.webp", width: 640, height: 1136 },
   { id: "p12", category: "Workshop", title: "Customers' cars at the shop", alt: "A white Mercedes-Benz parked outside the My Mechanic workshop", visual: "gear", illustration: false, src: "/media/shopfront-mercedes.webp", width: 1080, height: 1350 },
-  { id: "g1", category: "Diagnostics", title: "Computerized OBD scanning", alt: "Illustration of a diagnostic scanner showing live engine data", visual: "scanner", illustration: true },
-  { id: "g2", category: "Diagnostics", title: "Electrical fault tracing", alt: "Illustration of an electrical circuit being tested", visual: "electrical", illustration: true },
-  { id: "g3", category: "Workshop", title: "Engine bay work", alt: "Illustration of a car engine with moving pistons", visual: "engine", illustration: true },
-  { id: "g5", category: "Repairs", title: "Brake disc & caliper service", alt: "Illustration of a spinning brake disc and caliper", visual: "brake", illustration: true },
-  { id: "g6", category: "Repairs", title: "Suspension repair", alt: "Illustration of a coil spring and shock absorber compressing", visual: "suspension", illustration: true },
-  { id: "g7", category: "Repairs", title: "AC system service", alt: "Illustration of an AC condenser fan with cool airflow", visual: "ac", illustration: true },
-  { id: "g8", category: "Before & After", title: "Injector spray: clogged vs clean", alt: "Illustration comparing an uneven injector spray with a clean even spray", visual: "injector", illustration: true },
-  { id: "g9", category: "Before & After", title: "Carbon cleaning", alt: "Illustration of a piston with carbon deposits being cleaned", visual: "piston", illustration: true },
-  { id: "g10", category: "Workshop", title: "Battery testing station", alt: "Illustration of a car battery on charge", visual: "battery", illustration: true },
 ];
 
 /**

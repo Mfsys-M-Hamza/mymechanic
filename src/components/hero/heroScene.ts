@@ -171,25 +171,10 @@ export function createHeroScene(container: HTMLElement, opts: { animate: boolean
   table.add(arc);
   scene.add(table, car);
 
-  // Follow the site theme: additive glow vanishes on a light page, so the light theme
-  // uses normal blending and deeper amber for the hologram, beam and turntable.
-  let light = false;
-  const applyTheme = () => {
-    light = document.documentElement.getAttribute("data-theme") === "light";
-    const glowBlend = light ? THREE.NormalBlending : THREE.AdditiveBlending;
-    holoMat.color.set(light ? 0x8a5a00 : 0xffffff);
-    lineMat.color.set(light ? 0xc48a00 : 0xfff0b8);
-    glowMat.color.set(light ? 0xe0a000 : 0xffffff);
-    gridMat.opacity = light ? 0.4 : 0.18;
-    rimRingMat.color.set(light ? 0xc48a00 : YELLOW);
-    arcMat.opacity = light ? 0.2 : 0.12;
-    arcMat.blending = glowBlend;
-    [holoMat, lineMat, glowMat, arcMat].forEach((m) => { m.blending = glowBlend; m.needsUpdate = true; });
-    if (!opts.animate && ready) drawStill();
-  };
-  applyTheme();
-  const themeObserver = new MutationObserver(applyTheme);
-  themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  // Glow on the dark site: additive blending for the turntable arc; faint grid lines.
+  gridMat.opacity = 0.18;
+  arcMat.opacity = 0.12;
+  arcMat.blending = THREE.AdditiveBlending;
 
   // Interaction
   const pointer = { x: 0, y: 0 };
@@ -238,7 +223,7 @@ export function createHeroScene(container: HTMLElement, opts: { animate: boolean
     localHolo.constant = x;
     beam.position.x = x;
     lineMat.opacity = on;
-    glowMat.opacity = (light ? 0.35 : 0.5) * on;
+    glowMat.opacity = 0.5 * on;
     // Hotspots ping when the beam passes and stay lit while that area is a hologram.
     hotspots.forEach((h) => {
       const scanned = x > h.x && on > 0;
@@ -317,7 +302,6 @@ export function createHeroScene(container: HTMLElement, opts: { animate: boolean
     dispose() {
       cancelAnimationFrame(raf);
       timer.dispose();
-      themeObserver.disconnect();
       io.disconnect();
       ro.disconnect();
       window.removeEventListener("pointermove", onPointer);

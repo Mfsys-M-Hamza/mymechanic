@@ -7,7 +7,6 @@ import { mainNav } from "@/config/navigation";
 import { client } from "@/config/client";
 import { telHref, whatsappHref } from "@/lib/links";
 import { Logo } from "./Logo";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { CalendarIcon, CloseIcon, MenuIcon, PhoneIcon, WhatsAppIcon } from "@/components/Icons";
 
 export function Header() {
@@ -92,7 +91,6 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <ThemeToggle />
             <a href={telHref} className="btn btn-outline btn-sm hidden xl:inline-flex" aria-label={`Call ${client.phone.display}`}>
               <PhoneIcon width={16} height={16} /> {client.phone.display}
             </a>

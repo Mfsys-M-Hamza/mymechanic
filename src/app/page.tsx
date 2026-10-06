@@ -152,7 +152,7 @@ export default function HomePage() {
       <section className="section" aria-labelledby="reviews-title">
         <div className="container-x">
           <SectionHeading id="reviews-title" eyebrow="Customer reviews" title={<>What customers <span className="brand-text">say</span></>} />
-          <div className="mt-10"><ReviewsBlock limit={3} /></div>
+          <div className="mt-10"><ReviewsBlock /></div>
         </div>
       </section>
 
