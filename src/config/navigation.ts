@@ -4,6 +4,7 @@ export const mainNav = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
+  { label: "Car Inspection", href: "/car-inspection" },
   { label: "Spare Parts", href: "/spare-parts" },
   { label: "Gallery", href: "/gallery" },
   ...(client.features.blog ? [{ label: "Blog", href: "/blog" }] : []),

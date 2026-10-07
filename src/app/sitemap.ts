@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/book-appointment", priority: 0.9, freq: "yearly" },
     { path: "/about", priority: 0.7, freq: "yearly" },
     { path: "/contact", priority: 0.8, freq: "yearly" },
+    { path: "/car-inspection", priority: 0.9, freq: "monthly" },
     { path: "/spare-parts", priority: 0.8, freq: "monthly" },
     ...(client.offer.active ? [{ path: "/special-offers", priority: 0.8, freq: "weekly" as const }] : []),
     { path: "/gallery", priority: 0.5, freq: "monthly" },
