@@ -17,7 +17,7 @@ const TILES: { id: string; className: string; sizes: string }[] = [
   { id: "w4", className: "", sizes: "(min-width: 1024px) 25vw, 50vw" },
   { id: "w5", className: "", sizes: "(min-width: 1024px) 25vw, 50vw" },
   { id: "w6", className: "", sizes: "(min-width: 1024px) 25vw, 50vw" },
-  { id: "w7", className: "", sizes: "(min-width: 1024px) 25vw, 50vw" },
+  { id: "w9", className: "", sizes: "(min-width: 1024px) 25vw, 50vw" },
   { id: "w8", className: "", sizes: "(min-width: 1024px) 25vw, 50vw" },
 ];
 
