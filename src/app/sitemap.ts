@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { services } from "@/data/services";
 import { posts } from "@/data/blog";
+import { client } from "@/config/client";
 import { absUrl } from "@/lib/seo";
 
 export const dynamic = "force-static";
@@ -16,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/spare-parts", priority: 0.8, freq: "monthly" },
     { path: "/gallery", priority: 0.5, freq: "monthly" },
     { path: "/reviews", priority: 0.5, freq: "monthly" },
-    { path: "/blog", priority: 0.7, freq: "weekly" },
+    ...(client.features.blog ? [{ path: "/blog", priority: 0.7, freq: "weekly" as const }] : []),
     { path: "/privacy-policy", priority: 0.2, freq: "yearly" },
     { path: "/terms-and-conditions", priority: 0.2, freq: "yearly" },
     { path: "/cookie-policy", priority: 0.2, freq: "yearly" },
@@ -25,6 +26,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...pages.map((p) => ({ url: absUrl(p.path), lastModified: launch, changeFrequency: p.freq, priority: p.priority })),
     ...services.map((s) => ({ url: absUrl(`/services/${s.slug}`), lastModified: launch, changeFrequency: "monthly" as const, priority: 0.8 })),
-    ...posts.map((p) => ({ url: absUrl(`/blog/${p.slug}`), lastModified: p.updated, changeFrequency: "monthly" as const, priority: 0.6 })),
+    ...(client.features.blog ? posts : []).map((p) => ({ url: absUrl(`/blog/${p.slug}`), lastModified: p.updated, changeFrequency: "monthly" as const, priority: 0.6 })),
   ];
 }

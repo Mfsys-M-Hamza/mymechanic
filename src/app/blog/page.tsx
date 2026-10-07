@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { client } from "@/config/client";
 import { blogCategories, posts, readingMinutes } from "@/data/blog";
 import { pageMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/ui/PageHero";
 import { BlogBrowser, type PostCard } from "@/components/BlogBrowser";
 import { CtaBand } from "@/components/ui/CtaBand";
 
-export const metadata: Metadata = pageMetadata({
-  title: "Car Care Blog — Maintenance Advice for Wah Cantt Drivers",
-  description:
-    "Practical car maintenance advice from My Mechanic.pk: engine diagnostics, fuel efficiency, hybrid care, brakes, AC and seasonal tips for Wah Cantt and Taxila drivers.",
-  path: "/blog",
-});
+export const metadata: Metadata = client.features.blog
+  ? pageMetadata({
+      title: "Car Care Blog — Maintenance Advice for Wah Cantt Drivers",
+      description:
+        "Practical car maintenance advice from My Mechanic.pk: engine diagnostics, fuel efficiency, hybrid care, brakes, AC and seasonal tips for Wah Cantt and Taxila drivers.",
+      path: "/blog",
+    })
+  : { robots: { index: false, follow: false } };
 
 export default function BlogPage() {
+  if (!client.features.blog) notFound(); // blog hidden (client.features.blog)
   const cards: PostCard[] = [...posts]
     .sort((a, b) => b.published.localeCompare(a.published))
     .map((p) => ({

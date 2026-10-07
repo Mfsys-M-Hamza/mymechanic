@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { client } from "@/config/client";
 import { getPost, posts, readingMinutes, relatedPosts } from "@/data/blog";
 import { getService } from "@/data/services";
 import { articleSchema, pageMetadata } from "@/lib/seo";
@@ -22,7 +23,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const p = getPost((await params).slug);
-  if (!p) return {};
+  if (!p || !client.features.blog) return { robots: { index: false, follow: false } };
   return pageMetadata({
     title: p.title,
     description: p.description,
@@ -37,7 +38,7 @@ const fmt = (d: string) => new Date(d).toLocaleDateString("en-GB", { day: "numer
 
 export default async function PostPage({ params }: Props) {
   const p = getPost((await params).slug);
-  if (!p) notFound();
+  if (!p || !client.features.blog) notFound(); // blog hidden (client.features.blog)
   const services = p.relatedServices.map(getService).filter((s) => s !== undefined);
   const related = relatedPosts(p);
 

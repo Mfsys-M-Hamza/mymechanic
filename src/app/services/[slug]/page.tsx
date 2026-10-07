@@ -47,7 +47,7 @@ export default async function ServicePage({ params }: Props) {
   const s = getService((await params).slug);
   if (!s) notFound();
   const related = relatedServices(s);
-  const articles = posts.filter((p) => p.relatedServices.includes(s.slug)).slice(0, 3);
+  const articles = client.features.blog ? posts.filter((p) => p.relatedServices.includes(s.slug)).slice(0, 3) : [];
   const bookHref = `/book-appointment?service=${s.slug}`;
   const waHref = whatsappHref(serviceInquiryMessage(s.name));
   const media = galleryItems.filter((g) => g.service === s.slug && g.src && g.width && g.height);

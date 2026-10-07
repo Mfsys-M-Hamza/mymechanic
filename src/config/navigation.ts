@@ -1,12 +1,14 @@
+import { client } from "./client";
+
 export const mainNav = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Spare Parts", href: "/spare-parts" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Blog", href: "/blog" },
+  ...(client.features.blog ? [{ label: "Blog", href: "/blog" }] : []),
   { label: "Contact", href: "/contact" },
-] as const;
+];
 
 export const legalNav = [
   { label: "Privacy Policy", href: "/privacy-policy" },

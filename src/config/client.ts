@@ -133,6 +133,13 @@ export const client = {
    */
   googleRating: { value: 4.6, count: 134, checked: "2026-10" },
 
+  /**
+   * Site sections that can be switched off without deleting them.
+   * blog: false hides the Blog from the menu, footer, sitemap and service pages, and the
+   * /blog pages show "page not found" (noindex). Set to true to publish it again.
+   */
+  features: { blog: false },
+
   /* ------------------------------------------------------------------ Hours */
   hours: {
     /** From the Branch 1 Google Business Profile (October 2026). */
