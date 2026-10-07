@@ -11,6 +11,9 @@ import { ParallaxManager } from "@/components/ParallaxManager";
 import { SvgDefs } from "@/components/visuals/Mechanical";
 import { JsonLd } from "@/components/JsonLd";
 import { absUrl, businessSchema, websiteSchema } from "@/lib/seo";
+import { offerBannerBootScript } from "@/lib/offer";
+import { InlineScript } from "@/components/InlineScript";
+import { OfferBanner } from "@/components/conversion/OfferBanner";
 
 const barlow = Barlow_Condensed({ subsets: ["latin"], weight: ["600", "700", "800"], variable: "--font-barlow", display: "swap" });
 // Body font uses "optional": no late font-swap repaint, so text paints once (better LCP on slow mobiles).
@@ -45,12 +48,17 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-PK" className={`${barlow.variable} ${inter.variable}`}>
+    // suppressHydrationWarning: the offer boot script may set data-offer-banner before React hydrates.
+    <html lang="en-PK" className={`${barlow.variable} ${inter.variable}`} suppressHydrationWarning>
+      <head>
+        {client.offer.active && <InlineScript html={offerBannerBootScript} />}
+      </head>
       <body className="flex min-h-dvh flex-col">
         <a href="#main" className="skip-link">Skip to main content</a>
         <SvgDefs />
         <JsonLd data={businessSchema()} />
         <JsonLd data={websiteSchema()} />
+        <OfferBanner />
         <Header />
         <main id="main" tabIndex={-1} className="flex-1 outline-none">
           {children}

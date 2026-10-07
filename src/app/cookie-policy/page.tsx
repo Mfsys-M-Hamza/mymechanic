@@ -20,6 +20,7 @@ export default function CookiePage() {
       <ul>
         <li><strong>mm-appt / mm-contact</strong> — the time of your last form submission, used to prevent accidental duplicate requests.</li>
         <li><strong>mm-consent</strong> — your analytics choice, if analytics is enabled.</li>
+        <li><strong>mm-offer-banner</strong> — remembers that you closed the special-offer banner.</li>
       </ul>
       <p>These never leave your device and are not used to track you.</p>
 

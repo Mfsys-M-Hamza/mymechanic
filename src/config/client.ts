@@ -140,6 +140,35 @@ export const client = {
    */
   features: { blog: false },
 
+  /* ------------------------------------------------------------------ Offer */
+  offer: {
+    /** Master switch for the top banner and the /special-offers page. */
+    active: true,
+    title: "Free Computerized Scanning & General Vehicle Check-Up",
+    /** Short line for the top banner (after the bold "FREE"). */
+    banner: "computerized scanning & general check-up",
+    summary:
+      "Bring your car to either of our Wah Cantt branches for a free computerized OBD scan and a general check-up. We'll explain what we find in plain language — there's no obligation to book any repair.",
+    /** ISO date-time with Pakistan offset. The banner and page switch off automatically after this. */
+    endsAt: "2026-12-31T23:59:59+05:00",
+    endsLabel: "31 December 2026",
+    includes: [
+      "Computerized OBD-II fault-code scan of the engine and supported modules",
+      "Reading of stored and pending fault codes, with a plain-language explanation",
+      "Visual general check-up: fluids, belts, hoses, tyres, lights and battery condition",
+      "Advice on what needs attention now and what can wait",
+    ],
+    /** Editable terms — confirm with the owner. */
+    terms: [
+      "Valid until 31 December 2026 at both My Mechanic.pk branches in Wah Cantt.",
+      "One free scan and check-up per vehicle.",
+      "Please book in advance by WhatsApp or phone so we can reserve a slot.",
+      "Repairs, parts, advanced module programming and road tests are not included and are quoted separately after inspection.",
+      "Some vehicles or modules may not be readable with standard diagnostic equipment.",
+      "My Mechanic.pk may update or withdraw these terms; any change will be shown on this page.",
+    ],
+  },
+
   /* ------------------------------------------------------------------ Hours */
   hours: {
     /** From the Branch 1 Google Business Profile (October 2026). */

@@ -20,6 +20,7 @@ Google reviews, 12 workshop photos from Instagram, "EFI & Hybrid Specialists", a
 | 5 | **Domain name** (for example `mymechanic.pk`) | Canonical URLs, sitemap, social previews | `NEXT_PUBLIC_SITE_URL` env var or `client.siteUrl` |
 | 6 | **Hero car image licence**: the car is a Vexels stock illustration supplied as a watermarked preview. Get the licensed download and re-run `npm run hero-car` | Using unlicensed stock on a business site is a copyright risk | `assets/source/hero-car.jpg`, see `docs/ASSET-LICENSES.md` |
 | 7 | **Workshop standards and values wording** (About page) | Must describe what the workshop actually does | `about.standards`, `about.values` in `src/data/content.ts` |
+| 7a | **Free scanning offer**: confirm the terms (one per vehicle, book ahead, repairs quoted separately) and the end date, 31 December 2026 | The terms are published on `/special-offers` | `client.offer` (set `active: false` to switch the banner and page off) |
 
 ## Strongly recommended
 
@@ -42,7 +43,7 @@ Google reviews, 12 workshop photos from Instagram, "EFI & Hybrid Specialists", a
 
 ## Notes on content decisions
 
-- The previous client's promotion (free scanning offer, banner, popup and the `/special-offers` page) was removed completely.
+- The previous client's promotion was removed; a free scanning offer for My Mechanic.pk was added back at the owner's request (October 2026) — banner plus `/special-offers` page.
 - No prices, awards, customer counts or "best/No. 1/guaranteed" claims are published. "Since 1998" and "27+ years" come from the owner.
 - The previous template client's photos, videos, reviews and flyer were removed from the site and archived in
   `assets/previous-client/`, which is not published or committed. Delete that folder once it's no longer needed.
