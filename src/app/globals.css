@@ -255,7 +255,7 @@ h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: 0.
 }
 
 
-/* Offer banner closed by the visitor or expired (set before paint by the head script, see src/lib/offer.ts) */
+/* Offer banner hidden once the offer has expired (set before paint by the head script, see src/lib/offer.ts) */
 html[data-offer-banner="closed"] .offer-banner { display: none; }
 
 /* Without JavaScript, reveal-on-scroll content must still be visible */

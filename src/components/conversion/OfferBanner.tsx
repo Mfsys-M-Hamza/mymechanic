@@ -1,32 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { client } from "@/config/client";
-import { OFFER_BANNER_KEY, isOfferLive } from "@/lib/offer";
+import { LEGACY_OFFER_BANNER_KEY, isOfferLive } from "@/lib/offer";
 import { CloseIcon } from "@/components/Icons";
 
 /**
- * Dismissible offer bar above the header. The head boot script hides it before first paint
- * for visitors who closed it (or after the offer ends); this component re-checks on mount
- * because React's dev-mode remount clears the <html> attribute the script sets.
+ * Offer bar above the header. Closing it hides it only until the next page load (it is
+ * not remembered), so every new visit or refresh shows the offer again. It switches off
+ * automatically after client.offer.endsAt.
  */
 export function OfferBanner() {
   const [hidden, setHidden] = useState(false);
 
-  useLayoutEffect(() => {
-    let closed = false;
-    try { closed = localStorage.getItem(OFFER_BANNER_KEY) === "closed"; } catch {}
-    if (closed || !isOfferLive()) setHidden(true);
+  useEffect(() => {
+    // Clear the old "closed for good" flag so visitors who dismissed it earlier see it again.
+    try { localStorage.removeItem(LEGACY_OFFER_BANNER_KEY); } catch {}
+    if (!isOfferLive()) setHidden(true);
   }, []);
 
   if (!client.offer.active || hidden) return null;
-
-  const close = () => {
-    try { localStorage.setItem(OFFER_BANNER_KEY, "closed"); } catch {}
-    document.documentElement.setAttribute("data-offer-banner", "closed");
-    setHidden(true);
-  };
 
   return (
     <div className="offer-banner relative z-[60] bg-brand text-[#111111]" role="region" aria-label="Special offer">
@@ -40,7 +34,7 @@ export function OfferBanner() {
       </div>
       <button
         type="button"
-        onClick={close}
+        onClick={() => setHidden(true)}
         aria-label="Close offer banner"
         className="absolute right-2 top-1/2 inline-flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-lg hover:bg-black/10 sm:right-4"
       >
