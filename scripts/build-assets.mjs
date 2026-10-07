@@ -2,7 +2,7 @@
  * Brand asset pipeline.
  *
  * Takes the client's original logo (assets/source/logo-original.png) and produces:
- *  - public/brand/mm-logo.webp / mm-logo.png   trimmed logo (rename when the logo changes, so caches refresh) (proportions untouched)
+ *  - public/brand/mm-logo-dark.webp / mm-logo-dark.png   trimmed logo (rename when the logo changes, so caches refresh) (proportions untouched)
  *  - src/app/icon.png / apple-icon.png   favicons generated from the logo mark
  *  - public/brand/og-image.jpg           1200x630 social sharing image
  *
@@ -140,9 +140,9 @@ const meta = await sharp(logo).metadata();
 console.log(`mode: ${alphaMode ? "already transparent" : whiteMode ? "transparent (white background removed)" : `tile (background rgb ${bg.join(",")})`}`);
 console.log(`trimmed logo: ${meta.width}x${meta.height} → client.logo = { width: 640, height: ${Math.round((640 * meta.height) / meta.width)} }`);
 
-await sharp(logo).resize({ width: 640 }).webp({ quality: 90, alphaQuality: 95 }).toFile("public/brand/mm-logo.webp");
-await sharp(logo).resize({ width: 640 }).png({ compressionLevel: 9 }).toFile("public/brand/mm-logo.png");
-await sharp(logo).resize({ width: 220 }).webp({ quality: 90 }).toFile("public/brand/mm-logo-sm.webp");
+await sharp(logo).resize({ width: 640 }).webp({ quality: 90, alphaQuality: 95 }).toFile("public/brand/mm-logo-dark.webp");
+await sharp(logo).resize({ width: 640 }).png({ compressionLevel: 9 }).toFile("public/brand/mm-logo-dark.png");
+await sharp(logo).resize({ width: 220 }).webp({ quality: 90 }).toFile("public/brand/mm-logo-dark-sm.webp");
 
 // Favicons. Coloured-background logos use the mark on its own colour, full-bleed;
 // transparent logos sit centred on a dark tile so they read at 16-32px.

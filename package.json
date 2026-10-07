@@ -10,7 +10,8 @@
     "assets": "node scripts/build-assets.mjs",
     "media": "node scripts/build-media.mjs",
     "hero-car": "node scripts/build-hero-car.mjs",
-    "qa": "node scripts/qa.mjs"
+    "qa": "node scripts/qa.mjs",
+    "logo-dark": "node scripts/build-logo-dark.mjs"
   },
   "dependencies": {
     "next": "^16.3.6",
