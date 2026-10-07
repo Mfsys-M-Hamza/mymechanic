@@ -63,6 +63,37 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Team */}
+      <section className="section carbon pt-16" aria-labelledby="team-title">
+        <div className="container-x">
+          <SectionHeading
+            id="team-title"
+            eyebrow="Our team"
+            title={<>The people behind <span className="brand-text">My Mechanic</span></>}
+            intro="A close-knit team of mechanics who work together on every car — in uniform, at your service at both our Wah Cantt branches."
+          />
+          <div className="mt-10 grid gap-5 sm:grid-cols-2">
+            {[
+              { src: "/media/team-lineup.webp", width: 1512, height: 2016, alt: "The My Mechanic team in uniform standing in a line in front of the workshop's yellow sign and Liqui Moly banner", caption: "Our team at the workshop" },
+              { src: "/media/team-huddle.webp", width: 1600, height: 2133, alt: "My Mechanic technicians in a team huddle outside the workshop, arms around each other", caption: "One team, every job" },
+            ].map((ph, i) => (
+              <figure key={ph.src} className={`reveal ${i ? "reveal-right" : "reveal-left"} group card relative overflow-hidden`}>
+                <Image
+                  src={asset(ph.src)}
+                  alt={ph.alt}
+                  width={ph.width}
+                  height={ph.height}
+                  sizes="(min-width: 640px) 50vw, 100vw"
+                  className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/70 to-transparent" aria-hidden="true" />
+                <figcaption className="absolute bottom-4 left-4 right-4 font-display text-xl font-bold uppercase text-[#fff]">{ph.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Mission & values */}
       <section className="section carbon garage-light" aria-labelledby="mission-title">
         <div className="container-x">
