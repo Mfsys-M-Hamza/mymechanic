@@ -213,6 +213,11 @@ h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: 0.
 @keyframes wave-rev { to { transform: translateX(20px); } }
 @keyframes level { 0%, 100% { transform: translateY(0) rotate(0deg); } 30% { transform: translateY(-3px) rotate(-3deg); } 65% { transform: translateY(1px) rotate(2.5deg); } }
 @keyframes sheen { 0% { transform: translateX(-10px); } 45%, 100% { transform: translateX(150px); } }
+/* Inspection pop-up (InspectionPopup.tsx) */
+@keyframes popup-in { from { opacity: 0; transform: translateY(24px) scale(.96); } to { opacity: 1; transform: none; } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+.popup-card { animation: popup-in .45s cubic-bezier(.2,.7,.2,1) both; }
+.popup-backdrop { animation: fade-in .3s ease-out both; }
 /* Brand logo marquee (BrandMarquee.tsx): two identical lists, so moving -50% loops seamlessly */
 @keyframes marquee { to { transform: translateX(-50%); } }
 .marquee-track { animation: marquee 45s linear infinite; }

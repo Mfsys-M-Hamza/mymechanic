@@ -14,6 +14,7 @@ import { absUrl, businessSchema, websiteSchema } from "@/lib/seo";
 import { offerBannerBootScript } from "@/lib/offer";
 import { InlineScript } from "@/components/InlineScript";
 import { OfferBanner } from "@/components/conversion/OfferBanner";
+import { InspectionPopup } from "@/components/conversion/InspectionPopup";
 
 const barlow = Barlow_Condensed({ subsets: ["latin"], weight: ["600", "700", "800"], variable: "--font-barlow", display: "swap" });
 // Body font uses "optional": no late font-swap repaint, so text paints once (better LCP on slow mobiles).
@@ -66,6 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <MobileActionBar />
         <FloatingWhatsApp />
+        <InspectionPopup />
         <ConsentManager />
         <RevealManager />
         <ParallaxManager />
