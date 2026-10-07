@@ -6,7 +6,7 @@ Supplying the details below will make it stronger. Each item shows where it goes
 **Already on the site (October 2026), from the owner, both Google listings, Instagram (@mymechanic.pk) and Facebook:**
 business name, logo pack and animation, established 1998 / 27+ years, phone and WhatsApp 0312-5045678, both branch
 addresses and map pins (Shop-07, Laiq Ali Chowk; Shop No. 19, Taj Market, New City Phase-1), opening hours
-(Sat–Thu 8 AM–9 PM, Friday closed — from the Branch 1 listing), the 4.6★ Google rating (134 reviews), three full
+(Sat–Thu 9 AM–9 PM confirmed by the owner, Friday closed), the 4.6★ Google rating (134 reviews), three full
 Google reviews, 12 workshop photos from Instagram, "EFI & Hybrid Specialists", and the social links.
 
 ## Must confirm before launch
@@ -33,7 +33,7 @@ Google reviews, 12 workshop photos from Instagram, "EFI & Hybrid Specialists", a
 | 12 | **Business email address**, if one is monitored | `client.email` |
 | 13 | **Emergency breakdown assistance**: is it offered? coverage area? hours? | Set `enabled: true` on `emergency-breakdown-assistance` in `services.ts` and complete its copy |
 | 14 | Keep the Google rating current (4.6★ / 134 reviews as of October 2026) | `client.googleRating` |
-| 15 | **Spare-part photos**: the Spare Parts page (37 parts in 8 categories) shows placeholder art until real photos arrive. Also confirm which parts are actually stocked or sourced | Photos in `public/parts/`, then `image` on each part in `src/data/spareParts.ts` |
+| 15 | **Spare parts page**: now shows 20 real products (oils, fluids, coolants, cleaners). Send photos of any other parts to add | Photos in `public/parts/`, then an entry in `src/data/spareParts.ts` |
 
 ## Optional
 

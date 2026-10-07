@@ -8,16 +8,16 @@ import { CtaBand } from "@/components/ui/CtaBand";
 import { CheckCircleIcon, WhatsAppIcon } from "@/components/Icons";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Car Spare Parts in Wah Cantt — Body Parts, Lights, Engine & More",
+  title: "Engine Oils, Fluids & Car Care Products in Wah Cantt",
   description:
-    "Car spare parts at My Mechanic.pk, Wah Cantt: body parts, headlights and tail lights, engine, brake and suspension parts, oils and filters, batteries and AC parts. Ask on WhatsApp for availability.",
+    "Genuine and branded engine oils, transmission fluids, brake fluids, coolants and fuel-system treatments at My Mechanic.pk, Wah Cantt — Toyota, Honda, Liqui Moly, Shell, ZIC, Kixx, Motul and more. Ask on WhatsApp for availability.",
   path: "/spare-parts",
 });
 
 const promises = [
-  "Parts matched to your exact make, model and year",
-  "Quality and genuine options explained before you buy",
-  "Professional fitting at either of our branches",
+  "The right grade for your exact make, model and year",
+  "Genuine and trusted brands — Toyota, Honda, Liqui Moly, Shell, ZIC and more",
+  "Fitted or topped up by our team at either branch",
 ];
 
 export default function SparePartsPage() {
@@ -26,11 +26,11 @@ export default function SparePartsPage() {
       <PageHero
         crumbs={[{ name: "Spare Parts", path: "/spare-parts" }]}
         eyebrow="Spare parts"
-        title={<>Car <span className="brand-text">spare parts</span></>}
+        title={<>Oils, fluids &amp; <span className="brand-text">car care</span></>}
         intro={
           <p>
-            From bumpers and headlights to brake pads, filters and batteries — we source the right part for your car and can fit it for you.
-            Prices and availability depend on the vehicle, so send us your car details on WhatsApp.
+            Genuine and branded engine oils, transmission and brake fluids, coolants and fuel-system treatments — stocked at our workshop and
+            matched to your car. Send us your car details on WhatsApp for the right product and current availability.
           </p>
         }
         visual="gear"

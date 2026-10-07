@@ -171,17 +171,17 @@ export const client = {
 
   /* ------------------------------------------------------------------ Hours */
   hours: {
-    /** From the Branch 1 Google Business Profile (October 2026). */
+    /** 9 AM–9 PM confirmed by the owner (October 2026); Friday closed as on Google. */
     confirmed: true,
     note: "Please call or WhatsApp before visiting on public holidays.",
     days: [
-      { day: "Monday", schemaDay: "Monday", opens: "08:00", closes: "21:00" },
-      { day: "Tuesday", schemaDay: "Tuesday", opens: "08:00", closes: "21:00" },
-      { day: "Wednesday", schemaDay: "Wednesday", opens: "08:00", closes: "21:00" },
-      { day: "Thursday", schemaDay: "Thursday", opens: "08:00", closes: "21:00" },
+      { day: "Monday", schemaDay: "Monday", opens: "09:00", closes: "21:00" },
+      { day: "Tuesday", schemaDay: "Tuesday", opens: "09:00", closes: "21:00" },
+      { day: "Wednesday", schemaDay: "Wednesday", opens: "09:00", closes: "21:00" },
+      { day: "Thursday", schemaDay: "Thursday", opens: "09:00", closes: "21:00" },
       { day: "Friday", schemaDay: "Friday", closed: true },
-      { day: "Saturday", schemaDay: "Saturday", opens: "08:00", closes: "21:00" },
-      { day: "Sunday", schemaDay: "Sunday", opens: "08:00", closes: "21:00" },
+      { day: "Saturday", schemaDay: "Saturday", opens: "09:00", closes: "21:00" },
+      { day: "Sunday", schemaDay: "Sunday", opens: "09:00", closes: "21:00" },
     ] as DayHours[],
   },
 

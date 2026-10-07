@@ -14,7 +14,7 @@ export const homeFaqs = [
   },
   {
     q: "What are your opening hours?",
-    a: "Saturday to Thursday, 8 AM to 9 PM. We are closed on Fridays. Call or WhatsApp 0312-5045678 before visiting on public holidays.",
+    a: "Saturday to Thursday, 9 AM to 9 PM. We are closed on Fridays. Call or WhatsApp 0312-5045678 before visiting on public holidays.",
   },
   {
     q: "Do you publish repair prices?",
@@ -159,7 +159,6 @@ export const galleryItems: GalleryItem[] = [
   { id: "p6", category: "Workshop", title: "Oils & fluids ready for a service", alt: "Engine oil, coolant and filters on a yellow trolley beside a car with its bonnet open", visual: "oil", illustration: false, src: "/media/oil-service-cart.webp", width: 1080, height: 1920, service: "preventive-maintenance" },
   { id: "p7", category: "Repairs", title: "Valve train inspection", alt: "Exposed camshaft and valve train of an engine during inspection", visual: "engine", illustration: false, src: "/media/camshaft-valve-train.webp", width: 640, height: 1136, service: "engine-tuning" },
   { id: "p8", category: "Diagnostics", title: "Suzuki Cultus PCV valve issue", alt: "Mechanic checking the PCV valve on a Suzuki Cultus engine", visual: "scanner", illustration: false, src: "/media/pcv-valve.webp", width: 720, height: 1280, service: "efi-specialist" },
-  { id: "p9", category: "Repairs", title: "Toyota Vitz suspension check", alt: "Engine bay of a Toyota Vitz during a suspension and engine-mount check", visual: "suspension", illustration: false, src: "/media/vitz-engine-bay.webp", width: 720, height: 1280 },
   { id: "p11", category: "Repairs", title: "Engine removal", alt: "Mechanics lifting the engine out of a car with its front end stripped, during an engine overhaul", visual: "engine", illustration: false, src: "/media/engine-removal.webp", width: 1600, height: 2133, service: "engine-diagnostics" },
   { id: "p12", category: "Workshop", title: "Customers' cars at the shop", alt: "A white Mercedes-Benz parked outside the My Mechanic workshop", visual: "gear", illustration: false, src: "/media/shopfront-mercedes.webp", width: 1080, height: 1350 },
 ];
