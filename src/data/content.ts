@@ -26,7 +26,7 @@ export const homeFaqs = [
   },
   {
     q: "Which areas do you serve?",
-    a: "Our two branches are in Wah Cantt, and we welcome customers from across Wah Cantt and Taxila, including New City, Wah Model Town, Hasan Abdal and the GT Road corridor.",
+    a: "Our two branches are in Wah Cantt, and we serve customers across Wah Cantt, Taxila, Islamabad, Rawalpindi and Hasan Abdal — including New City, Wah Model Town, Taxila Cantt, Sangjani, Tarnol, Golra Mor, Attock, Kamra and the GT Road and Motorway corridor.",
   },
   {
     q: "How do I book an appointment?",

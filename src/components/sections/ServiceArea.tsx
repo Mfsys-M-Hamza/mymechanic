@@ -1,4 +1,4 @@
-import { client, branchAddress } from "@/config/client";
+import { client, branchAddress, servedCities } from "@/config/client";
 import { branchDirectionsHref } from "@/lib/links";
 import { MapEmbed } from "@/components/ui/MapEmbed";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -14,7 +14,7 @@ export function ServiceArea() {
             id="area-title"
             eyebrow="Service area"
             title={<>Two branches in <span className="brand-text">Wah Cantt</span></>}
-            intro={`Visit us at Shop-07, Laiq Ali Chowk or at Taj Market, New City Phase-1 — convenient for drivers across Wah Cantt, Taxila and the GT Road corridor.`}
+            intro={`Visit us at Shop-07, Laiq Ali Chowk or at Taj Market, New City Phase-1 — serving drivers across ${servedCities}, plus all connected areas.`}
           />
           <ul className="reveal mt-6 flex flex-wrap gap-2" aria-label="Nearby areas we serve">
             {client.serviceAreas.nearby.map((a) => (

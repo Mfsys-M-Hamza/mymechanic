@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { client, branchAddress } from "@/config/client";
+import { client, branchAddress, servedCities } from "@/config/client";
 import { legalNav, mainNav } from "@/config/navigation";
 import { services } from "@/data/services";
 import { branchDirectionsHref, telHref, whatsappHref } from "@/lib/links";
@@ -16,7 +16,7 @@ export function Footer() {
         <div>
           <Logo size={96} />
           <p className="mt-5 max-w-sm text-mist">
-            {client.tagline}. Computerized diagnostics and honest repairs at two branches, serving drivers across {client.serviceAreas.primary.join(" and ")}.
+            {client.tagline}. Computerized diagnostics and honest repairs at two branches, serving drivers across {servedCities}.
           </p>
           <ul className="mt-6 flex gap-2" aria-label="Social media">
             {client.social.links.map((s) => {

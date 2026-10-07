@@ -196,9 +196,22 @@ export const client = {
 
   /* ------------------------------------------------------------ Service area */
   serviceAreas: {
-    primary: ["Wah Cantt", "Taxila"],
+    /** Cities served (owner, October 2026). Also published as areaServed in structured data. */
+    primary: ["Wah Cantt", "Taxila", "Islamabad", "Rawalpindi", "Hasan Abdal"],
     /** Nearby localities mentioned in copy. Keep to areas the workshop genuinely serves. */
-    nearby: ["Laiq Ali Chowk", "New City Phase-1 & 2", "Taj Market", "GT Road", "Wah Model Town", "Hasan Abdal", "Sangjani"],
+    nearby: [
+      "Laiq Ali Chowk",
+      "New City Phase-1 & 2",
+      "Wah Model Town",
+      "Taxila Cantt",
+      "Sangjani",
+      "Barahma Bahtar",
+      "Tarnol",
+      "Golra Mor",
+      "Attock",
+      "Kamra",
+      "GT Road & Motorway corridor",
+    ],
   },
 
   /* ------------------------------------------------------------ Brand colors */
@@ -273,3 +286,10 @@ export const branchAddress = (b: Branch) => [b.street, b.area].filter(Boolean).j
 export const fullAddress = [client.address.street, client.address.area, client.address.city, client.address.country]
   .filter(Boolean)
   .join(", ");
+
+/** ["A", "B", "C"] → "A, B and C". */
+export const listJoin = (items: readonly string[]) =>
+  items.length <= 1 ? items.join("") : `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
+
+/** "Wah Cantt, Taxila, Islamabad, Rawalpindi and Hasan Abdal" */
+export const servedCities = listJoin(client.serviceAreas.primary);

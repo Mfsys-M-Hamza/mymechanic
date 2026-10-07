@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { client, branchAddress, primaryBranch } from "@/config/client";
+import { client, branchAddress, listJoin, primaryBranch, servedCities } from "@/config/client";
 import { pageMetadata } from "@/lib/seo";
 import { branchDirectionsHref, directionsHref, telHref, whatsappHref } from "@/lib/links";
 import { PageHero } from "@/components/ui/PageHero";
@@ -54,8 +54,12 @@ export default function ContactPage() {
               <div className="reveal card p-6">
                 <h2 className="text-2xl font-bold uppercase text-white">Service area</h2>
                 <p className="mt-2 text-mist">
-                  We serve customers across {client.serviceAreas.primary.join(" and ")}, including {client.serviceAreas.nearby.slice(0, 5).join(", ")} and
-                  nearby areas.
+                  From our two branches in Wah Cantt, we proudly serve customers across {servedCities}, along with all connected
+                  surrounding areas.
+                </p>
+                <p className="mt-3 text-mist">
+                  This includes {listJoin(client.serviceAreas.nearby.map((a) => (a.endsWith("corridor") ? `the ${a}` : a)))}. Wherever you are nearby, a quick call or WhatsApp is all it takes to book
+                  your visit.
                 </p>
               </div>
               <div className="reveal card p-6">
