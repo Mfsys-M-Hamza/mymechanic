@@ -9,7 +9,7 @@
  *    blend of the background yellow and an ink colour, so anti-aliased edges become clean
  *    transparency instead of a yellow fringe.
  * 2. Recolours the black ink so it stays visible on a near-black page:
- *    - the "MY" and ".PK" letters → brand yellow
+ *    - the "MY" and ".PK" letters, and the white "MECHANIC" letters → brand yellow
  *    - everything else black (badge, fist line-art, letter outlines) → charcoal steel
  *    White areas (MECHANIC, the fist, the spanner, badge text) stay white.
  *
@@ -32,6 +32,12 @@ const ACCENT_ZONES = [
   { x0: 0.08, y0: 0.468, x1: 0.231, y1: 0.5015, mode: "pixel" }, // MY, lower part (stops before the badge corner)
   { x0: 0.72, y0: 0.655, x1: 0.93, y1: 0.75, mode: "shape" }, // .PK
 ];
+/**
+ * Bands where WHITE ink becomes brand yellow (its dark outline stays charcoal).
+ * MECHANIC spans rows 666–833 of the 1280px artwork; rows 642–660 and 834–850 are empty,
+ * so the band never touches the badge border, the fist or "AUTO WORKSHOP".
+ */
+const LIGHT_TO_ACCENT = [{ x0: 0.08, y0: 0.517, x1: 0.93, y1: 0.6535 }]; // MECHANIC
 
 const { data, info } = await sharp(SRC).removeAlpha().raw().toBuffer({ resolveWithObject: true });
 const W = info.width, H = info.height, N = W * H;
@@ -107,8 +113,11 @@ const out = Buffer.alloc(N * 4);
 for (let p = 0; p < N; p++) {
   const i = p * 3, o = p * 4;
   const L = lum(i) / 255;
-  const target = accent[p] ? ACCENT : STEEL;
-  for (let k = 0; k < 3; k++) out[o + k] = Math.round(target[k] * (1 - L) + 255 * L);
+  const x = p % W, y = (p / W) | 0;
+  const lightToAccent = LIGHT_TO_ACCENT.some((z) => x >= z.x0 * W && x <= z.x1 * W && y >= z.y0 * H && y <= z.y1 * H);
+  const dark = accent[p] ? ACCENT : STEEL; // colour for black ink
+  const light = lightToAccent ? ACCENT : [255, 255, 255]; // colour for white ink
+  for (let k = 0; k < 3; k++) out[o + k] = Math.round(dark[k] * (1 - L) + light[k] * L);
   out[o + 3] = Math.round(alpha[p] * 255);
 }
 await sharp(out, { raw: { width: W, height: H, channels: 4 } }).png({ compressionLevel: 9 }).toFile(OUT);

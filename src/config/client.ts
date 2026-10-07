@@ -79,12 +79,12 @@ export const client = {
   /* ------------------------------------------------------------------- Logo */
   logo: {
     /** Dark-background version of the shop-sign logo (`npm run logo-dark`, then `npm run assets`) */
-    src: "/brand/mm-logo-dark.webp",
-    fallbackPng: "/brand/mm-logo-dark.png",
+    src: "/brand/mm-logo-gold.webp",
+    fallbackPng: "/brand/mm-logo-gold.png",
     /** Intrinsic proportions of the generated logo — keep in sync to avoid distortion. */
     width: 640,
     height: 422,
-    alt: "My Mechanic.pk Auto Workshop logo — a fist holding a spanner above a steel badge, with MY and .PK in yellow",
+    alt: "My Mechanic.pk Auto Workshop logo — a fist holding a spanner above a steel badge, with the name in yellow",
   },
 
   /* ---------------------------------------------------------------- Contact */
