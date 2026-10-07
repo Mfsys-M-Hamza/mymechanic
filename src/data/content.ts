@@ -112,7 +112,7 @@ export const reviews: Review[] = [
  */
 export type GalleryItem = {
   id: string;
-  category: "Workshop" | "Diagnostics" | "Repairs" | "Before & After";
+  category: "Workshop" | "Diagnostics" | "Repairs" | "Tools & equipment" | "Before & After";
   title: string;
   alt: string;
   visual: VisualKey;
@@ -126,8 +126,9 @@ export type GalleryItem = {
 };
 
 /**
- * Real workshop photos. w1–w8: supplied by the client via WhatsApp (October 2026), shown on
- * the home page. p1–p12: from the workshop's Instagram (@mymechanic.pk).
+ * Real workshop photos. w1–w9: supplied by the client (October 2026), shown on the home page.
+ * s1–s12: service and equipment photos supplied by the client (October 2026), linked to their
+ * service pages. p1–p12: from the workshop's Instagram (@mymechanic.pk).
  */
 export const galleryItems: GalleryItem[] = [
   { id: "w1", category: "Workshop", title: "Our team at work", alt: "Four My Mechanic technicians in uniform working on a car with a yellow tool trolley", visual: "gear", illustration: false, src: "/media/team-at-work.webp", width: 1600, height: 2133 },
@@ -137,8 +138,20 @@ export const galleryItems: GalleryItem[] = [
   { id: "w5", category: "Workshop", title: "Honda Civic at the workshop", alt: "White Honda Civic with its bonnet open outside the My Mechanic workshop", visual: "gear", illustration: false, src: "/media/civic-at-workshop.webp", width: 960, height: 1280 },
   { id: "w6", category: "Diagnostics", title: "Service-pit inspection", alt: "White Toyota Mark X over the service pit with a mechanic working underneath", visual: "inspection", illustration: false, src: "/media/markx-service-pit.webp", width: 960, height: 1280, service: "suspension-repair" },
   { id: "w7", category: "Workshop", title: "Mercedes-Benz in for service", alt: "White Mercedes-Benz E-Class parked in front of the My Mechanic workshop", visual: "gear", illustration: false, src: "/media/mercedes-at-workshop.webp", width: 960, height: 1280 },
-  { id: "w9", category: "Workshop", title: "Our tool wall", alt: "Workshop wall of spanners, screwdrivers, pliers and socket sets neatly arranged on yellow pegboard above a workbench", visual: "gear", illustration: false, src: "/media/tool-wall.webp", width: 1600, height: 1200 },
+  { id: "w9", category: "Tools & equipment", title: "Our tool wall", alt: "Workshop wall of spanners, screwdrivers, pliers and socket sets neatly arranged on yellow pegboard above a workbench", visual: "gear", illustration: false, src: "/media/tool-wall.webp", width: 1600, height: 1200 },
   { id: "w8", category: "Workshop", title: "SUV service", alt: "Black SUV with its bonnet open in front of the My Mechanic workshop", visual: "gear", illustration: false, src: "/media/suv-service.webp", width: 1280, height: 1198 },
+  { id: "s1", category: "Repairs", title: "Complete suspension repair", alt: "Front suspension subframe with new control arms and bushes laid out for a complete suspension rebuild", visual: "suspension", illustration: false, src: "/media/suspension-subframe.webp", width: 1024, height: 1280, service: "suspension-repair" },
+  { id: "s2", category: "Repairs", title: "Dual-clutch transmission repair", alt: "Mechanic holding a dual-clutch transmission control unit in front of a Honda with its bonnet open", visual: "gear", illustration: false, src: "/media/dual-clutch-repair.webp", width: 1600, height: 2133 },
+  { id: "s3", category: "Repairs", title: "EFI engine repair", alt: "Engine with the timing cover removed, showing the timing chain, cam gears and valve train during an EFI engine repair", visual: "injector", illustration: false, src: "/media/efi-engine-repair.webp", width: 1600, height: 2133, service: "efi-specialist" },
+  { id: "s4", category: "Tools & equipment", title: "EFI diagnostic tools", alt: "EFI diagnostic kit with a scan tablet, multimeter and fuel-pressure test set on a workbench", visual: "scanner", illustration: false, src: "/media/efi-diagnostic-tools.webp", width: 1600, height: 1200, service: "computerized-scanning" },
+  { id: "s5", category: "Repairs", title: "Engine swap", alt: "Replacement engine on the workshop floor in front of the car it is being fitted to, with a chain hoist above", visual: "engine", illustration: false, src: "/media/engine-swap.webp", width: 1600, height: 2133, service: "engine-diagnostics" },
+  { id: "s6", category: "Repairs", title: "Head gasket replacement", alt: "Engine block with the cylinder head removed, showing carbon on the pistons, during a head gasket replacement", visual: "piston", illustration: false, src: "/media/head-gasket.webp", width: 1600, height: 2133, service: "engine-decarbonization" },
+  { id: "s7", category: "Repairs", title: "Hybrid battery repair", alt: "Hybrid battery pack opened on the workbench for cell testing and repair", visual: "hybrid", illustration: false, src: "/media/hybrid-battery.webp", width: 1600, height: 1200, service: "hybrid-car-repair" },
+  { id: "s8", category: "Repairs", title: "Hybrid gearbox repair", alt: "Honda Fit hybrid raised for repair with its gearbox removed and placed on the floor in front of the car", visual: "hybrid", illustration: false, src: "/media/hybrid-gearbox.webp", width: 1600, height: 2133, service: "hybrid-car-repair" },
+  { id: "s9", category: "Repairs", title: "Japanese head assembly swap", alt: "Two Japanese cylinder head assemblies side by side on the workshop floor during a head swap", visual: "engine", illustration: false, src: "/media/head-assembly-swap.webp", width: 960, height: 1280, service: "engine-tuning" },
+  { id: "s10", category: "Tools & equipment", title: "Compression tester", alt: "Engine compression test gauge kit with adapters in its red case", visual: "engine", illustration: false, src: "/media/compression-tester.webp", width: 1600, height: 2133, service: "engine-diagnostics" },
+  { id: "s11", category: "Tools & equipment", title: "OBD diagnostic scanner", alt: "Professional OBD diagnostic scan tablet with its connector cable", visual: "scanner", illustration: false, src: "/media/obd-scanner.webp", width: 1600, height: 2133, service: "computerized-scanning" },
+  { id: "s12", category: "Tools & equipment", title: "Ignition timing light", alt: "Inductive ignition timing light with its clamps, used for engine tuning", visual: "inspection", illustration: false, src: "/media/timing-light.webp", width: 1600, height: 2206, service: "engine-tuning" },
   { id: "p1", category: "Workshop", title: "Our workshop", alt: "My Mechanic.pk workshop front with its yellow sign and a Liqui Moly motor-oil banner, a white Toyota Yaris parked in the service bay", visual: "gear", illustration: false, src: "/media/yaris-in-bay.webp", width: 1080, height: 1917, service: "suspension-repair" },
   { id: "p3", category: "Workshop", title: "Motor oils, additives & car care", alt: "My Mechanic.pk sign above a blue Liqui Moly 'Motor oils, additives, car care' banner at the shop entrance", visual: "oil", illustration: false, src: "/media/shop-sign-liqui-moly.webp", width: 1080, height: 1350, service: "oil-filter-change" },
   { id: "p4", category: "Repairs", title: "Cylinder head work", alt: "Mechanic's hands working on an engine block with the cylinder head removed", visual: "engine", illustration: false, src: "/media/engine-head-work.webp", width: 640, height: 1136, service: "engine-diagnostics" },

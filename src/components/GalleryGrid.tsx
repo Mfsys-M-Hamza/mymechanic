@@ -9,7 +9,7 @@ import { MechanicalArt } from "@/components/visuals/Mechanical";
 import { Animated } from "@/components/visuals/Animated";
 import { ChevronIcon, CloseIcon, PlayIcon } from "@/components/Icons";
 
-const CATEGORIES = ["All", "Workshop", "Diagnostics", "Repairs", "Before & After"] as const;
+const CATEGORIES = ["All", "Workshop", "Diagnostics", "Repairs", "Tools & equipment", "Before & After"] as const;
 
 function Media({ item, large = false }: { item: GalleryItem; large?: boolean }) {
   if (large && item.video) {
