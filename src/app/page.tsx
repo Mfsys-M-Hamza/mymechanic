@@ -42,10 +42,16 @@ export default function HomePage() {
               <span className="metal-text">Professional Auto Repair</span>{" "}
               <span className="brand-text">&amp; Advanced Vehicle Services</span>
             </h1>
-            <p className="rise mt-6 max-w-xl text-lg text-mist" style={{ ["--d" as string]: "180ms" }}>
-              {client.name} is a car workshop with two branches in Wah Cantt. We start every job with computerized diagnostics, explain what we
-              find in plain language and only repair what you approve — for drivers across Wah Cantt and Taxila.
-            </p>
+            <div className="rise mt-6 max-w-xl space-y-3 text-lg text-mist" style={{ ["--d" as string]: "180ms" }}>
+              <p>
+                {client.name} is a trusted auto workshop in Wah Cantt, serving customers since 1998. With two branches, we offer computerized car
+                diagnostics, EFI tuning, hybrid car care, engine repair, suspension, brakes, and complete auto repair services in Wah Cantt and Taxila.
+              </p>
+              <p>
+                Whether you drive a Japanese car, a local vehicle, or a modern hybrid, trust {client.name} for professional car care in Wah Cantt
+                and Taxila.
+              </p>
+            </div>
             <ContactButtons className="rise mt-8" />
             <ul className="rise mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-mist" style={{ ["--d" as string]: "320ms" }}>
               {["EFI & hybrid specialists", "4.6★ on Google · 134 reviews", "Two branches in Wah Cantt"].map((t) => (
