@@ -13,6 +13,7 @@ import { CtaBand } from "@/components/ui/CtaBand";
 import { ReviewsBlock } from "@/components/sections/ReviewsBlock";
 import { ServiceArea } from "@/components/sections/ServiceArea";
 import { BrandFilm } from "@/components/sections/BrandFilm";
+import { SpecialistEquipment } from "@/components/sections/SpecialistEquipment";
 import { WorkshopPhotos } from "@/components/sections/WorkshopPhotos";
 import { Animated } from "@/components/visuals/Animated";
 import { MechanicalArt } from "@/components/visuals/Mechanical";
@@ -66,6 +67,8 @@ export default function HomePage() {
       </section>
 
       <BrandFilm />
+
+      <SpecialistEquipment />
 
       {/* --------------------------------------------------------- Services */}
       <section className="section carbon garage-light" aria-labelledby="services-title">

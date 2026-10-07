@@ -131,6 +131,8 @@ export type GalleryItem = {
  * service pages. p1–p12: from the workshop's Instagram (@mymechanic.pk).
  */
 export const galleryItems: GalleryItem[] = [
+  { id: "e1", category: "Tools & equipment", title: "Ultrasonic fuel injector cleaning machine", alt: "AMT Basic GDI fuel injector tester and cleaner with six injectors mounted over glass flow tubes, beside an ultrasonic cleaning bath", visual: "injector", illustration: false, src: "/media/ultrasonic-injector-machine.webp", width: 952, height: 1280, service: "fuel-injector-cleaning" },
+  { id: "e2", category: "Tools & equipment", title: "Advanced tuning kit", alt: "Open case of a pressurised fuel-system cleaning and tuning kit with canister, pressure gauge, hoses and engine adapters", visual: "scanner", illustration: false, src: "/media/advanced-tuning-kit.webp", width: 960, height: 1280, service: "engine-tuning" },
   { id: "w1", category: "Workshop", title: "Our team at work", alt: "Four My Mechanic technicians in uniform working on a car with a yellow tool trolley", visual: "gear", illustration: false, src: "/media/team-at-work.webp", width: 1600, height: 2133 },
   { id: "w2", category: "Diagnostics", title: "Underbody check over the service pit", alt: "White Mercedes-Benz E-Class with its bonnet open, parked over the workshop's service pit", visual: "inspection", illustration: false, src: "/media/mercedes-service-pit.webp", width: 960, height: 1280, service: "general-inspection" },
   { id: "w3", category: "Repairs", title: "Wheel & brake work", alt: "Technician working on a black Honda Civic raised on a jack with one wheel removed, outside the My Mechanic shop", visual: "brake", illustration: false, src: "/media/civic-wheel-work.webp", width: 884, height: 1280, service: "brake-service" },
