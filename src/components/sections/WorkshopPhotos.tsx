@@ -6,8 +6,20 @@ import { asset } from "@/lib/basePath";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ArrowRightIcon, InstagramIcon } from "@/components/Icons";
 
-/** Real workshop photos (from galleryItems), shown as a mosaic on the home page. */
-const PICKS = ["p1", "p2", "p4", "p5", "p3"];
+/**
+ * Home-page photo mosaic. Each tile is a gallery item (src/data/content.ts) plus its
+ * place in the grid. Mobile: 2 columns; desktop: 4 columns, the team photo as the feature.
+ */
+const TILES: { id: string; className: string; sizes: string }[] = [
+  { id: "w1", className: "col-span-2 row-span-2", sizes: "(min-width: 1024px) 50vw, 100vw" },
+  { id: "w2", className: "row-span-2", sizes: "(min-width: 1024px) 25vw, 50vw" },
+  { id: "w3", className: "", sizes: "(min-width: 1024px) 25vw, 50vw" },
+  { id: "w4", className: "", sizes: "(min-width: 1024px) 25vw, 50vw" },
+  { id: "w5", className: "", sizes: "(min-width: 1024px) 25vw, 50vw" },
+  { id: "w6", className: "", sizes: "(min-width: 1024px) 25vw, 50vw" },
+  { id: "w7", className: "", sizes: "(min-width: 1024px) 25vw, 50vw" },
+  { id: "w8", className: "", sizes: "(min-width: 1024px) 25vw, 50vw" },
+];
 
 function Photo({ item, className, sizes, delay }: { item: GalleryItem; className: string; sizes: string; delay: number }) {
   return (
@@ -27,9 +39,10 @@ function Photo({ item, className, sizes, delay }: { item: GalleryItem; className
 }
 
 export function WorkshopPhotos() {
-  const items = PICKS.map((id) => galleryItems.find((g) => g.id === id)).filter((g): g is GalleryItem => Boolean(g?.src));
-  if (items.length < 5) return null;
-  const [main, second, third, fourth, fifth] = items;
+  const tiles = TILES.map((t) => ({ ...t, item: galleryItems.find((g) => g.id === t.id) })).filter(
+    (t): t is typeof t & { item: GalleryItem } => Boolean(t.item?.src && t.item.width && t.item.height),
+  );
+  if (tiles.length === 0) return null;
   const instagram = client.social.links.find((l) => l.label === "Instagram");
   return (
     <section className="section" aria-labelledby="workshop-title">
@@ -50,12 +63,10 @@ export function WorkshopPhotos() {
             )}
           </div>
         </div>
-        <div className="mt-12 grid auto-rows-[220px] grid-cols-2 gap-4 sm:auto-rows-[260px] lg:grid-cols-4">
-          <Photo item={main} className="row-span-2" sizes="(min-width: 1024px) 25vw, 50vw" delay={0} />
-          <Photo item={second} className="row-span-2" sizes="(min-width: 1024px) 25vw, 50vw" delay={90} />
-          <Photo item={third} className="" sizes="(min-width: 1024px) 25vw, 50vw" delay={180} />
-          <Photo item={fourth} className="" sizes="(min-width: 1024px) 25vw, 50vw" delay={240} />
-          <Photo item={fifth} className="col-span-2" sizes="(min-width: 1024px) 50vw, 100vw" delay={300} />
+        <div className="mt-12 grid auto-rows-[200px] grid-cols-2 gap-4 sm:auto-rows-[240px] lg:grid-cols-4">
+          {tiles.map((t, i) => (
+            <Photo key={t.id} item={t.item} className={t.className} sizes={t.sizes} delay={(i % 4) * 90} />
+          ))}
         </div>
       </div>
     </section>

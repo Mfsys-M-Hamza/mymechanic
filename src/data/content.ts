@@ -125,8 +125,19 @@ export type GalleryItem = {
   height?: number;
 };
 
-/** Real photos from the workshop's Instagram (@mymechanic.pk), October 2026. */
+/**
+ * Real workshop photos. w1–w8: supplied by the client via WhatsApp (October 2026), shown on
+ * the home page. p1–p12: from the workshop's Instagram (@mymechanic.pk).
+ */
 export const galleryItems: GalleryItem[] = [
+  { id: "w1", category: "Workshop", title: "Our team at work", alt: "Four My Mechanic technicians in uniform working on a car with a yellow tool trolley", visual: "gear", illustration: false, src: "/media/team-at-work.webp", width: 1600, height: 2133 },
+  { id: "w2", category: "Diagnostics", title: "Underbody check over the service pit", alt: "White Mercedes-Benz E-Class with its bonnet open, parked over the workshop's service pit", visual: "inspection", illustration: false, src: "/media/mercedes-service-pit.webp", width: 960, height: 1280, service: "general-inspection" },
+  { id: "w3", category: "Repairs", title: "Wheel & brake work", alt: "Technician working on a black Honda Civic raised on a jack with one wheel removed, outside the My Mechanic shop", visual: "brake", illustration: false, src: "/media/civic-wheel-work.webp", width: 884, height: 1280, service: "brake-service" },
+  { id: "w4", category: "Repairs", title: "Toyota Aqua hybrid service", alt: "Blue Toyota Aqua hybrid with its bonnet open during a service", visual: "hybrid", illustration: false, src: "/media/aqua-hybrid-service.webp", width: 960, height: 1280, service: "hybrid-car-repair" },
+  { id: "w5", category: "Workshop", title: "Honda Civic at the workshop", alt: "White Honda Civic with its bonnet open outside the My Mechanic workshop", visual: "gear", illustration: false, src: "/media/civic-at-workshop.webp", width: 960, height: 1280 },
+  { id: "w6", category: "Diagnostics", title: "Service-pit inspection", alt: "White Toyota Mark X over the service pit with a mechanic working underneath", visual: "inspection", illustration: false, src: "/media/markx-service-pit.webp", width: 960, height: 1280, service: "suspension-repair" },
+  { id: "w7", category: "Workshop", title: "Mercedes-Benz in for service", alt: "White Mercedes-Benz E-Class parked in front of the My Mechanic workshop", visual: "gear", illustration: false, src: "/media/mercedes-at-workshop.webp", width: 960, height: 1280 },
+  { id: "w8", category: "Workshop", title: "SUV service", alt: "Black SUV with its bonnet open in front of the My Mechanic workshop", visual: "gear", illustration: false, src: "/media/suv-service.webp", width: 1280, height: 1198 },
   { id: "p1", category: "Workshop", title: "Our workshop", alt: "My Mechanic.pk workshop front with its yellow sign and a Liqui Moly motor-oil banner, a white Toyota Yaris parked in the service bay", visual: "gear", illustration: false, src: "/media/yaris-in-bay.webp", width: 1080, height: 1917, service: "suspension-repair" },
   { id: "p2", category: "Diagnostics", title: "Computerized diagnostics", alt: "Technician at the diagnostic computer inside the workshop, with shelves of oils and parts behind", visual: "scanner", illustration: false, src: "/media/diagnostic-computer.webp", width: 1080, height: 1920, service: "computerized-scanning" },
   { id: "p3", category: "Workshop", title: "Motor oils, additives & car care", alt: "My Mechanic.pk sign above a blue Liqui Moly 'Motor oils, additives, car care' banner at the shop entrance", visual: "oil", illustration: false, src: "/media/shop-sign-liqui-moly.webp", width: 1080, height: 1350, service: "oil-filter-change" },
