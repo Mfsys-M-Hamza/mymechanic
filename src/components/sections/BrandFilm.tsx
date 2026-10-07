@@ -9,8 +9,8 @@ import { DirectionsIcon, PinIcon } from "@/components/Icons";
 export function BrandFilm() {
   return (
     <section className="section overflow-hidden" aria-labelledby="brand-title">
-      <div className="container-x grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]">
-        <div>
+      <div className="container-x grid items-center gap-10 lg:grid-cols-[1fr_1.15fr] lg:gap-12">
+        <div className="order-2 lg:order-1">
           <SectionHeading
             id="brand-title"
             eyebrow={`Meet ${client.name}`}
@@ -34,14 +34,14 @@ export function BrandFilm() {
           <ContactButtons className="reveal mt-8" />
         </div>
 
-        <figure className="reveal reveal-zoom relative mx-auto w-full max-w-[340px]" style={{ ["--d" as string]: "120ms" }}>
-          <div className="absolute -inset-10 bg-[radial-gradient(circle,rgb(245_179_1/.28),transparent_65%)]" aria-hidden="true" />
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/12 bg-surface p-2 shadow-deep">
+        <figure className="reveal reveal-zoom relative order-1 w-full lg:order-2" style={{ ["--d" as string]: "120ms" }}>
+          <div className="absolute -inset-8 bg-[radial-gradient(circle,rgb(245_179_1/.22),transparent_65%)]" aria-hidden="true" />
+          <div className="relative overflow-hidden rounded-[1.75rem] border border-white/12 bg-surface p-2 shadow-deep">
             <LoopVideo
-              src="/media/logo-animation.mp4"
-              poster="/media/logo-animation-poster.webp"
-              label={`${client.name} animated logo: a gear and spanner drop onto a steel plate as the name appears`}
-              className="aspect-[9/16] w-full rounded-[1.6rem] object-cover"
+              src="/media/logo-animated.mp4"
+              poster="/media/logo-animated-poster.webp"
+              label={`${client.name} animated logo: the badge opens, the name slides in and a fist raises a spanner`}
+              className="aspect-video w-full rounded-[1.35rem] object-cover"
             />
           </div>
           <figcaption className="sr-only">{client.name} — Auto Workshop, Wah Cantt</figcaption>

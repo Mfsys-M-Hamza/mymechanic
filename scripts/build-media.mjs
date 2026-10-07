@@ -19,7 +19,7 @@ const SRC = "assets/media";
 const OUT = "public/media";
 const CHROME = process.env.CHROME_PATH || "C:/Program Files/Google/Chrome/Application/chrome.exe";
 /** Where to grab each video's poster, as a fraction of its length (default: the middle). */
-const POSTER_AT = { "logo-animation": 0.93 };
+const POSTER_AT = { "logo-animated": 0.9 };
 
 await mkdir(OUT, { recursive: true });
 const files = await readdir(SRC);
@@ -59,7 +59,10 @@ for (const f of videos) {
     c.getContext("2d").drawImage(v, 0, 0);
     return c.toDataURL("image/png");
   }, base + encodeURIComponent(f), POSTER_AT[name] ?? 0.5);
-  const info = await sharp(Buffer.from(frame.split(",")[1], "base64")).resize({ width: 720, withoutEnlargement: true }).webp({ quality: 78 }).toFile(`${OUT}/${name}-poster.webp`);
+  const still = sharp(Buffer.from(frame.split(",")[1], "base64"));
+  const { width: fw = 0, height: fh = 0 } = await still.metadata();
+  // Portrait clips: 720px wide is plenty; landscape clips are shown wider, so keep 1280px.
+  const info = await still.resize({ width: fw > fh ? 1280 : 720, withoutEnlargement: true }).webp({ quality: 80 }).toFile(`${OUT}/${name}-poster.webp`);
   await copyFile(path.join(SRC, f), `${OUT}/${f}`);
   console.log(`video  ${f} + ${name}-poster.webp  ${info.width}x${info.height}`);
 }
