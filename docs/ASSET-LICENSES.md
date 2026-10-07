@@ -13,6 +13,7 @@ hero car illustration, which is third-party stock from Vexels** (see the first r
 |---|---|---|---|
 | Hero car illustration (side view, yellow coupé SUV) | `assets/source/hero-car.jpg` → `public/media/hero-car.png` (cut-out) and `public/media/hero-car-holo.png` (hologram version), via `scripts/build-hero-car.mjs` | Vexels (vexels.com), supplied by the client as a watermarked preview | **Licence not yet confirmed.** Credited on the page under the hero ("Car illustration: Vexels"). Replace with the licensed download before launch (see note above). |
 | Workshop photos (12) | `assets/media/*.jpg` → `public/media/*.webp` via `npm run media` | The client's own Instagram posts (@mymechanic.pk), downloaded October 2026 | Client-owned. Used on the client's own website. |
+| Car-make logos (home-page brand strip) | `src/components/sections/BrandMarquee.tsx` | [Simple Icons](https://simpleicons.org) npm package (`simple-icons`) | SVG data CC0-1.0. The marks themselves are trademarks of each manufacturer, used only to identify vehicles serviced; no affiliation implied. |
 | My Mechanic.pk logo — fist and spanner (the shop-sign logo) | `assets/source/logo-yellow.jpg` (original on yellow) → `assets/source/logo-original.png` (dark-background version by `scripts/build-logo-dark.mjs`: yellow removed, black ink recoloured to brand yellow / charcoal) | Supplied by the client (October 2026) | Client-owned. Used with permission. |
 | Earlier gear-and-spanner logo pack (transparent, dark, white, yellow; PNG and SVG) | `assets/source/logo-pack/` | Supplied by the client | Client-owned. Kept for reference; no longer used on the site. |
 | Animated logo film (fist-and-spanner logo, 1920×1080, 6 s) | `assets/media/logo-animated.mp4` → `public/media/logo-animated.mp4` + poster | Supplied by the client (October 2026); poster frame grabbed by `scripts/build-media.mjs` | Client-owned. Used with permission. |
@@ -37,5 +38,7 @@ hero car illustration, which is third-party stock from Vexels** (see the first r
 
 - Add authentic workshop photos only if the business owns them or holds written permission.
 - Label any illustration or stock image clearly; never present it as the actual premises or customer work (the gallery already does this).
-- Do not use vehicle manufacturer logos without permission.
+- Vehicle manufacturer logos appear only in the home-page "We service all makes" strip, to identify the makes we work on
+  (Simple Icons SVG data, CC0; brands not in that set are shown as text). They remain trademarks of their owners, the
+  Disclaimer page states there is no affiliation, and they must not be used in a way that implies endorsement.
 - If an asset requires attribution, add a row to the table above **and** a visible credit (for example in the gallery caption or footer).

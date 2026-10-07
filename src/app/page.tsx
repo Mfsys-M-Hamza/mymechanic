@@ -13,6 +13,7 @@ import { CtaBand } from "@/components/ui/CtaBand";
 import { ReviewsBlock } from "@/components/sections/ReviewsBlock";
 import { ServiceArea } from "@/components/sections/ServiceArea";
 import { BrandFilm } from "@/components/sections/BrandFilm";
+import { BrandMarquee } from "@/components/sections/BrandMarquee";
 import { SpecialistEquipment } from "@/components/sections/SpecialistEquipment";
 import { PaymentMethods } from "@/components/sections/PaymentMethods";
 import { WorkshopPhotos } from "@/components/sections/WorkshopPhotos";
@@ -66,6 +67,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <BrandMarquee />
 
       <BrandFilm />
 

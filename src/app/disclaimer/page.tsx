@@ -29,7 +29,7 @@ export default function DisclaimerPage() {
 
       <h2>Vehicle brands</h2>
       <p>
-        Vehicle makes and models mentioned on this website are referred to only to describe the vehicles we work on. {client.name} is an independent
+        Vehicle makes, models and logos shown on this website are trademarks of their respective owners and are used only to describe the vehicles we work on. {client.name} is an independent
         workshop and is not affiliated with or endorsed by any vehicle manufacturer.
       </p>
 
