@@ -91,6 +91,14 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/8">
+        <div className="container-x flex flex-wrap items-center gap-x-3 gap-y-2 py-4 text-sm text-metal">
+          <span className="font-semibold text-mist">We accept:</span>
+          {client.payments.map((m) => (
+            <span key={m.name} className="rounded-full border border-white/12 bg-white/[.03] px-3 py-1 text-xs text-mist">{m.name}</span>
+          ))}
+        </div>
+      </div>
+      <div className="border-t border-white/8">
         <div className="container-x flex flex-col gap-4 py-6 text-sm text-metal md:flex-row md:items-center md:justify-between">
           <p>© {year} {client.legalName}. All rights reserved.{client.foundingYear ? ` Est. ${client.foundingYear}.` : ""}</p>
           <ul className="flex flex-wrap gap-x-5 gap-y-2">

@@ -140,6 +140,18 @@ export const client = {
    */
   features: { blog: false },
 
+  /**
+   * Payment methods accepted at both branches (owner, October 2026). Shown on the home page,
+   * in the footer and in structured data (paymentAccepted). `icon` picks the icon in PaymentMethods.tsx.
+   */
+  payments: [
+    { name: "Cash", note: "Pay at the counter at either branch", icon: "cash" },
+    { name: "Debit / Credit Card", note: "Visa, Mastercard and UnionPay cards", icon: "card" },
+    { name: "Easypaisa", note: "Mobile wallet and Easypaisa account", icon: "wallet" },
+    { name: "JazzCash", note: "Mobile wallet and JazzCash account", icon: "wallet" },
+    { name: "Online Bank Transfer", note: "Internet and mobile banking (IBFT / Raast)", icon: "online" },
+  ],
+
   /* ------------------------------------------------------------------ Offer */
   offer: {
     /** Master switch for the top banner and the /special-offers page. */

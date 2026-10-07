@@ -14,6 +14,7 @@ import { ReviewsBlock } from "@/components/sections/ReviewsBlock";
 import { ServiceArea } from "@/components/sections/ServiceArea";
 import { BrandFilm } from "@/components/sections/BrandFilm";
 import { SpecialistEquipment } from "@/components/sections/SpecialistEquipment";
+import { PaymentMethods } from "@/components/sections/PaymentMethods";
 import { WorkshopPhotos } from "@/components/sections/WorkshopPhotos";
 import { Animated } from "@/components/visuals/Animated";
 import { MechanicalArt } from "@/components/visuals/Mechanical";
@@ -166,6 +167,8 @@ export default function HomePage() {
       </section>
 
       <ServiceArea />
+
+      <PaymentMethods />
 
       {/* ----------------------------------------------------------- FAQ */}
       <section className="section carbon" aria-labelledby="faq-title">

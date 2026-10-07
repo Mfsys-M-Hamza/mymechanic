@@ -76,6 +76,8 @@ export function businessSchema() {
     ],
   };
   if (client.email) schema.email = client.email;
+  schema.paymentAccepted = client.payments.map((m) => m.name).join(", ");
+  schema.currenciesAccepted = "PKR";
   // Every branch is listed as a department so both locations are discoverable.
   schema.department = client.branches.map((b) => ({
     "@type": "AutoRepair",

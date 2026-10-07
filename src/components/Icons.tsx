@@ -64,6 +64,18 @@ export const SunIcon = (p: P) => (
 export const MoonIcon = (p: P) => (
   <svg {...base(p)} {...stroke}><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z" /></svg>
 );
+export const CardIcon = (p: P) => (
+  <svg {...base(p)} {...stroke}><rect x="2.5" y="5" width="19" height="14" rx="2.5" /><path d="M2.5 10h19M6.5 15h4" /></svg>
+);
+export const WalletIcon = (p: P) => (
+  <svg {...base(p)} {...stroke}><rect x="6" y="2.5" width="12" height="19" rx="2.5" /><path d="M10.5 18.5h3" /><path d="M9 8.5h6M9 11.5h4" /></svg>
+);
+export const CashIcon = (p: P) => (
+  <svg {...base(p)} {...stroke}><rect x="2.5" y="6" width="19" height="12" rx="2" /><circle cx="12" cy="12" r="2.6" /><path d="M6 9.5v5M18 9.5v5" /></svg>
+);
+export const OnlinePayIcon = (p: P) => (
+  <svg {...base(p)} {...stroke}><circle cx="12" cy="12" r="9.5" /><path d="M2.5 12h19M12 2.5c2.6 2.8 3.9 6 3.9 9.5s-1.3 6.7-3.9 9.5c-2.6-2.8-3.9-6-3.9-9.5s1.3-6.7 3.9-9.5z" /></svg>
+);
 export const FacebookIcon = (p: P) => (
   <svg {...base(p)} fill="currentColor"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z" /></svg>
 );
