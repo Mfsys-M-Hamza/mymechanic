@@ -1,17 +1,15 @@
 # Asset Licensing & Attribution
 
 Every visual asset in this project is supplied by the client or created specifically for this site, **except the
-hero car illustration, which is third-party stock from Vexels** (see the first row). No manufacturer logos are used.
+car pictures (hero car and inspection charges cards), which the client supplied from the web with no stated source**.
 
-> **Action needed before launch:** the hero car image was supplied as a small watermarked preview found online
-> (`designed by vexels`). Download the illustration from vexels.com under a licence that covers commercial
-> websites (Vexels' free licence requires attribution; paid plans remove that requirement), replace
-> `assets/source/hero-car.jpg` with the licensed file, adjust `CROP` in `scripts/build-hero-car.mjs` if the
-> framing differs, and run `npm run hero-car`. Keep or remove the on-page credit to match the licence.
+> **Action needed before launch:** confirm the client has the right to use the hero car photo and the inspection
+> car pictures (rows below), or replace them with licensed or owned photos and re-run `npm run hero-car` /
+> `node scripts/build-inspection-cars.mjs`.
 
 | Asset | Location | Source | Licence / status |
 |---|---|---|---|
-| Hero car illustration (side view, yellow coupé SUV) | `assets/source/hero-car.jpg` → `public/media/hero-car.png` (cut-out) and `public/media/hero-car-holo.png` (hologram version), via `scripts/build-hero-car.mjs` | Vexels (vexels.com), supplied by the client as a watermarked preview | **Licence not yet confirmed.** Credited on the page under the hero ("Car illustration: Vexels"). Replace with the licensed download before launch (see note above). |
+| Hero car photo (side view, yellow BMW saloon) | `assets/source/hero-car-photo.jpg` → `hero-car-photo-cut.png` (rembg) → `public/media/hero-car.png` (mirrored, glass tinted, shadow) and `public/media/hero-car-holo.png` (hologram version), via `scripts/build-hero-car.mjs` | Supplied by the client (October 2026); original source not stated | **Licence not confirmed** — looks like a stock/web image. Confirm the client has the right to use it, or replace. Replaces the earlier Vexels illustration (`assets/source/hero-car.jpg`, no longer used). |
 | Workshop photos (12) | `assets/media/*.jpg` → `public/media/*.webp` via `npm run media` | The client's own Instagram posts (@mymechanic.pk), downloaded October 2026 | Client-owned. Used on the client's own website. |
 | Inspection charges car pictures (red SUV, silver sedan, white Yaris, white car with a red gift bow for the New Car card) | `assets/source/inspection-cars/` → `public/inspection/*.webp` via `scripts/build-inspection-cars.mjs` (backgrounds removed with rembg) | Supplied by the client (October 2026); original sources not stated | **Licence not confirmed** — they look like stock/web images. Confirm the client has the right to use them, or replace. |
 | New-car (ribbon) picture — **not used** | `assets/source/inspection-cars/new-car-pngtree-watermarked.png` | pngtree free preview with its watermark | Not published. Needs a licensed, watermark-free download from pngtree before use; the New Car card uses a different supplied ribbon-car photo instead. |

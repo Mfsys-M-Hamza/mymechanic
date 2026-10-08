@@ -76,13 +76,6 @@ export function Hero3D() {
         </div>
       </Animated>
       <div ref={mount} className={`absolute inset-0 transition-opacity duration-700 ${ready ? "opacity-100" : "opacity-0"}`} />
-      {ready && (
-        // Attribution required by the car illustration's licence (see docs/ASSET-LICENSES.md).
-        <p className="absolute bottom-1 right-2 text-[10px] text-metal">
-          Car illustration:{" "}
-          <a href="https://www.vexels.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-brand">Vexels</a>
-        </p>
-      )}
     </div>
   );
 }

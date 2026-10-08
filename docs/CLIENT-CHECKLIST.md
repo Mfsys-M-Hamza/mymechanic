@@ -18,7 +18,7 @@ Google reviews, 12 workshop photos from Instagram, "EFI & Hybrid Specialists", a
 | 3 | **Branch 2 hours**, if different from Branch 1 | The site shows one set of hours for both branches | `client.hours` |
 | 4 | **Services offered**: all 16 service pages were kept as they are, as requested. Hide any that My Mechanic.pk does not offer | Service pages must be accurate | `src/data/services.ts` (set `enabled: false` to hide) |
 | 5 | **Domain name** (for example `mymechanic.pk`) | Canonical URLs, sitemap, social previews | `NEXT_PUBLIC_SITE_URL` env var or `client.siteUrl` |
-| 6 | **Hero car image licence**: the car is a Vexels stock illustration supplied as a watermarked preview. Get the licensed download and re-run `npm run hero-car` | Using unlicensed stock on a business site is a copyright risk | `assets/source/hero-car.jpg`, see `docs/ASSET-LICENSES.md` |
+| 6 | **Car picture licences**: the hero car photo and the inspection-card car pictures were supplied from the web with no stated source. Confirm the right to use them or replace them | Using unlicensed images on a business site is a copyright risk | `assets/source/hero-car-photo.jpg`, `assets/source/inspection-cars/`, see `docs/ASSET-LICENSES.md` |
 | 7 | **Workshop standards and values wording** (About page) | Must describe what the workshop actually does | `about.standards`, `about.values` in `src/data/content.ts` |
 | 7a | **Free scanning offer**: confirm the terms (one per vehicle, book ahead, repairs quoted separately) and the end date, 31 December 2026 | The terms are published on `/special-offers` | `client.offer` (set `active: false` to switch the banner and page off) |
 

@@ -1,7 +1,7 @@
 /**
  * Three.js hero scene — "live diagnostic scan".
  *
- * The car illustration (public/media/hero-car.png) drives onto a holographic
+ * The car photo (public/media/hero-car.png) drives onto a holographic
  * turntable, wheels turning, and parks. A scanning beam then sweeps across it:
  * behind the beam the car switches to its hologram version (hero-car-holo.png),
  * and diagnostic hotspots ping as the beam reaches them (the engine flags a fault
@@ -19,14 +19,14 @@ export type SceneHandle = { dispose: () => void };
 
 const YELLOW = 0xf5b301;
 
-/** Car image size in scene units (aspect from build-hero-car.mjs: 1180×430). */
+/** Car image size in scene units (aspect from build-hero-car.mjs: 1090×386). */
 const CAR_W = 4.8;
-const CAR_H = CAR_W / (1180 / 430);
+const CAR_H = CAR_W / (1090 / 386);
 /** Image v (0 = top) where the tyres touch the ground. */
-const GROUND_V = 0.955;
+const GROUND_V = 0.909;
 /** Wheel centres and radius, as fractions of the image (u from left, v from top). */
-const WHEELS = [{ u: 0.214, v: 0.756 }, { u: 0.802, v: 0.756 }];
-const WHEEL_R_U = 45 / 590;
+const WHEELS = [{ u: 0.212, v: 0.687 }, { u: 0.843, v: 0.687 }];
+const WHEEL_R_U = 86 / 1090;
 
 /** Image (u, v) → car-local position. */
 const uv = (u: number, v: number, z = 0) => new THREE.Vector3((u - 0.5) * CAR_W, (GROUND_V - v) * CAR_H, z);
@@ -107,11 +107,11 @@ export function createHeroScene(container: HTMLElement, opts: { animate: boolean
   const spotGeo = keep(new THREE.SphereGeometry(0.06, 16, 12));
   const ringGeo = keep(new THREE.RingGeometry(0.09, 0.12, 32));
   const hotspots = ([
-    [0.85, 0.46, true], // engine bay: fault found
-    [0.802, 0.756, false], // front brake
-    [0.44, 0.33, false], // cabin electronics
-    [0.214, 0.756, false], // rear suspension
-    [0.06, 0.68, false], // exhaust
+    [0.92, 0.49, true], // engine bay: fault found
+    [0.843, 0.687, false], // front brake
+    [0.55, 0.21, false], // cabin electronics
+    [0.212, 0.687, false], // rear suspension
+    [0.04, 0.78, false], // exhaust
   ] as const).map(([u, v, fault]) => {
     const color = fault ? 0xff6a1f : 0xffd24a;
     const dotMat = keep(new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0 }));
