@@ -1,8 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import type { Review } from "@/data/content";
-import { ChevronIcon, StarIcon } from "@/components/Icons";
+import { StarIcon } from "@/components/Icons";
 
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 /** "2026-08" → "August 2026"; "2026-08-14" → "14 August 2026". Parsed manually to avoid timezone shifts. */
@@ -12,27 +12,11 @@ function formatReviewDate(d: string) {
 }
 
 /**
- * Horizontal review slider: swipe on touch screens, arrow buttons (and arrow keys) on desktop.
+ * Horizontal review slider: swipe on touch screens; arrow keys when focused.
  * Uses native scroll-snap, so it works without JavaScript and never auto-advances.
  */
 export function ReviewsSlider({ reviews }: { reviews: Review[] }) {
   const track = useRef<HTMLUListElement>(null);
-  const [edge, setEdge] = useState({ start: true, end: false });
-
-  const update = useCallback(() => {
-    const el = track.current;
-    if (!el) return;
-    setEdge({ start: el.scrollLeft <= 4, end: el.scrollLeft + el.clientWidth >= el.scrollWidth - 4 });
-  }, []);
-
-  useEffect(() => {
-    update();
-    const el = track.current;
-    el?.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-    return () => { el?.removeEventListener("scroll", update); window.removeEventListener("resize", update); };
-  }, [update]);
-
   const go = (dir: 1 | -1) => {
     const el = track.current;
     if (!el) return;
@@ -47,7 +31,7 @@ export function ReviewsSlider({ reviews }: { reviews: Review[] }) {
       <ul
         ref={track}
         tabIndex={0}
-        aria-label="Customer reviews — scroll sideways or use the arrow buttons"
+        aria-label="Customer reviews — scroll sideways for more"
         onKeyDown={(e) => { if (e.key === "ArrowRight") { e.preventDefault(); go(1); } if (e.key === "ArrowLeft") { e.preventDefault(); go(-1); } }}
         className="-mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-px-4 px-4 pb-4 [scrollbar-width:thin] focus-visible:outline-offset-4"
       >
@@ -71,18 +55,6 @@ export function ReviewsSlider({ reviews }: { reviews: Review[] }) {
           </li>
         ))}
       </ul>
-      {reviews.length > 1 && (
-        <div className="mt-4 flex items-center justify-end gap-2">
-          <button type="button" onClick={() => go(-1)} disabled={edge.start} aria-label="Previous reviews"
-            className="inline-flex h-11 w-11 rotate-180 items-center justify-center rounded-full border border-white/15 text-white transition-colors hover:border-brand hover:text-brand disabled:opacity-30 disabled:hover:border-white/15 disabled:hover:text-white">
-            <ChevronIcon />
-          </button>
-          <button type="button" onClick={() => go(1)} disabled={edge.end} aria-label="Next reviews"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white transition-colors hover:border-brand hover:text-brand disabled:opacity-30 disabled:hover:border-white/15 disabled:hover:text-white">
-            <ChevronIcon />
-          </button>
-        </div>
-      )}
     </div>
   );
 }
