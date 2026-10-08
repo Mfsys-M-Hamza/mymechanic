@@ -159,7 +159,9 @@ pass(`${internalLinks.size} unique internal links checked`);
 const wa = [...externalLinks].filter((l) => l.startsWith("https://wa.me/"));
 const tel = [...externalLinks].filter((l) => l.startsWith("tel:"));
 wa.every((l) => l.startsWith("https://wa.me/923125045678")) ? pass(`${wa.length} WhatsApp link variants all use wa.me/923125045678`) : fail(`bad WhatsApp link: ${wa.find((l) => !l.startsWith("https://wa.me/923125045678"))}`);
-tel.every((l) => l === "tel:+923125045678") ? pass(`telephone links use tel:+923125045678`) : fail(`bad tel link ${tel.join(",")}`);
+// The footer's web-developer credit (WideWeb Technologies) carries its own number.
+const DEV_CREDIT_TEL = "tel:+923040500121";
+tel.every((l) => l === "tel:+923125045678" || l === DEV_CREDIT_TEL) ? pass(`telephone links use tel:+923125045678 (plus the developer credit)`) : fail(`bad tel link ${tel.join(",")}`);
 report.externalLinks = [...externalLinks];
 
 // ---------------------------------------------------------------- Appointment form
@@ -172,6 +174,8 @@ report.externalLinks = [...externalLinks];
     // capture window.open instead of leaving the site
     window.__opened = [];
     window.open = (u) => { window.__opened.push(String(u)); return { opener: null }; };
+    // The car-inspection pop-up would cover the form; mark it as already seen this visit.
+    try { sessionStorage.setItem("mm-inspection-popup", "1"); } catch {}
   });
   await page.goto(`${BASE}${BP}/book-appointment?service=hybrid-car-repair`, { waitUntil: "networkidle0" });
   const pre = await page.$eval("#service", (s) => s.value);

@@ -36,7 +36,7 @@ const all: Service[] = [
     visual: "injector",
     featured: true,
     enabled: true,
-    seoTitle: "EFI Specialist in Wah Cantt — Fuel Injection Diagnosis & Repair",
+    seoTitle: "EFI Specialist in Wah Cantt — Fuel Injection",
     seoDescription:
       "EFI (electronic fuel injection) diagnosis and repair in Wah Cantt: sensors, throttle body, injectors and fuel pressure. Book via WhatsApp.",
     summary: "Diagnosis and repair of electronic fuel injection systems, sensors and throttle bodies.",
@@ -83,7 +83,7 @@ const all: Service[] = [
     visual: "scanner",
     featured: true,
     enabled: true,
-    seoTitle: "Car Computerized Scanning in Wah Cantt — OBD Diagnostic Scan",
+    seoTitle: "Computerized Car Scanning in Wah Cantt",
     seoDescription:
       "Computerized OBD car scanning in Wah Cantt. Read fault codes, live data and warning lights explained in plain language.",
     summary: "OBD diagnostic scan to read fault codes and live data from your car's computer.",
@@ -126,7 +126,7 @@ const all: Service[] = [
     visual: "engine",
     featured: true,
     enabled: true,
-    seoTitle: "Computerized Engine Tuning in Wah Cantt — Car Tune-Up",
+    seoTitle: "Computerized Engine Tuning in Wah Cantt",
     seoDescription:
       "Computerized engine tuning in Wah Cantt: spark plugs, ignition, idle and air-fuel checks with diagnostic equipment for smoother running and better average.",
     summary: "A data-led tune-up covering ignition, air-fuel mixture, idle and throttle adaptation.",
@@ -363,7 +363,7 @@ const all: Service[] = [
     visual: "piston",
     featured: true,
     enabled: true,
-    seoTitle: "Engine Decarbonization (Carbon Cleaning) in Wah Cantt",
+    seoTitle: "Engine Carbon Cleaning in Wah Cantt",
     seoDescription:
       "Engine decarbonization in Wah Cantt to remove carbon deposits from intake, valves and combustion chambers. Inspection first to confirm suitability.",
     summary: "Removal of carbon deposits from intake, valves and combustion chambers.",
@@ -410,7 +410,7 @@ const all: Service[] = [
     visual: "suspension",
     featured: true,
     enabled: true,
-    seoTitle: "Car Suspension Repair in Wah Cantt — Shocks, Bushes & Links",
+    seoTitle: "Car Suspension Repair in Wah Cantt",
     seoDescription:
       "Complete suspension inspection and repair in Wah Cantt: shock absorbers, struts, bushes, ball joints, links and steering components.",
     summary: "Shocks, struts, bushes, ball joints, links and steering component repair.",
@@ -457,7 +457,7 @@ const all: Service[] = [
     visual: "brake",
     featured: true,
     enabled: true,
-    seoTitle: "Brake Repair & Service in Wah Cantt — Pads, Discs & Fluid",
+    seoTitle: "Car Brake Repair & Service in Wah Cantt",
     seoDescription:
       "Brake inspection and service in Wah Cantt: brake pads, discs, drums, fluid and ABS warning diagnosis. Safety-first checks before every repair.",
     summary: "Pads, discs, drums, brake fluid and ABS warning diagnosis.",
@@ -598,7 +598,7 @@ const all: Service[] = [
     shortName: "General Inspection",
     visual: "inspection",
     enabled: true,
-    seoTitle: "General Car Inspection in Wah Cantt — Pre-Purchase & Health Check",
+    seoTitle: "Car Health Check & Inspection in Wah Cantt",
     seoDescription:
       "General vehicle inspection in Wah Cantt: fluids, brakes, suspension, tyres, lights, battery and computerized scan. Ideal before buying a used car.",
     summary: "A structured health check of your car's key systems with a written summary.",
@@ -641,7 +641,7 @@ const all: Service[] = [
     shortName: "Preventive Maintenance",
     visual: "gear",
     enabled: true,
-    seoTitle: "Preventive Car Maintenance & Periodic Service in Wah Cantt",
+    seoTitle: "Car Maintenance & Periodic Service in Wah Cantt",
     seoDescription:
       "Preventive car maintenance and periodic servicing in Wah Cantt based on your vehicle's schedule. Reduce breakdowns and plan costs.",
     summary: "Scheduled servicing that catches wear early and reduces breakdowns.",

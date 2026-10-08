@@ -14,9 +14,9 @@ import { CheckCircleIcon, ShieldIcon } from "@/components/Icons";
 import type { VisualKey } from "@/data/services";
 
 export const metadata: Metadata = pageMetadata({
-  title: "About My Mechanic.pk — Car Workshop in Wah Cantt",
+  title: "About Us — Car Workshop in Wah Cantt Since 1998",
   description:
-    "My Mechanic.pk has repaired cars in Wah Cantt since 1998 — 27+ years in business. EFI & hybrid specialists with two branches, at Laiq Ali Chowk and Taj Market, New City Phase-1.",
+    "Repairing cars in Wah Cantt since 1998 — 27+ years. EFI & hybrid specialists with two branches: Laiq Ali Chowk and Taj Market, New City Phase-1.",
   path: "/about",
 });
 

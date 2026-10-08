@@ -6,9 +6,9 @@
  *   python -c "from rembg import remove, new_session; from PIL import Image;
  *              s=new_session('isnet-general-use'); remove(Image.open(SRC).convert('RGB'), session=s).save(OUT)")
  * and produces:
- *  - public/media/hero-car.png        the car facing right, see-through window glass tinted dark,
+ *  - public/media/hero-car.webp       the car facing right, see-through window glass tinted dark,
  *                                     with a soft ground shadow
- *  - public/media/hero-car-holo.png   a "hologram" version: glowing outlines, a faint silhouette
+ *  - public/media/hero-car-holo.webp  a "hologram" version: glowing outlines, a faint silhouette
  *                                     fill and scanlines, used where the scanner beam has passed
  *
  * Both share one size so the 3D scene can swap between them at the beam. Prints the size;
@@ -58,7 +58,7 @@ const car = await sharp({ create: { width: W, height: H, channels: 4, background
   .composite([{ input: shadow, left: 0, top: 0 }, { input: carOnly, left: 0, top: 0 }])
   .raw()
   .toBuffer();
-await sharp(car, { raw: { width: W, height: H, channels: 4 } }).png({ compressionLevel: 9 }).toFile("public/media/hero-car.png");
+await sharp(car, { raw: { width: W, height: H, channels: 4 } }).webp({ quality: 82, alphaQuality: 90 }).toFile("public/media/hero-car.webp");
 
 // Hologram: Sobel edges of the car + silhouette outline, a faint fill and scanlines.
 const { data: body } = await sharp({ create: { width: W, height: H, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } } })
@@ -88,6 +88,6 @@ for (let y = 1; y < H - 1; y++) {
     holo[o] = R; holo[o + 1] = G; holo[o + 2] = B; holo[o + 3] = Math.round(a * 255);
   }
 }
-await sharp(holo, { raw: { width: W, height: H, channels: 4 } }).blur(0.6).png({ compressionLevel: 9 }).toFile("public/media/hero-car-holo.png");
+await sharp(holo, { raw: { width: W, height: H, channels: 4 } }).blur(0.6).webp({ quality: 80, alphaQuality: 85 }).toFile("public/media/hero-car-holo.webp");
 
 console.log(`hero car: ${W}x${H}, aspect ${(W / H).toFixed(4)}; source (trimmed) ${sw}x${sh}`);

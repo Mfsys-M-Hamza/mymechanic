@@ -1,9 +1,9 @@
 /**
  * Three.js hero scene — "live diagnostic scan".
  *
- * The car photo (public/media/hero-car.png) drives onto a holographic
+ * The car photo (public/media/hero-car.webp) drives onto a holographic
  * turntable, wheels turning, and parks. A scanning beam then sweeps across it:
- * behind the beam the car switches to its hologram version (hero-car-holo.png),
+ * behind the beam the car switches to its hologram version (hero-car-holo.webp),
  * and diagnostic hotspots ping as the beam reaches them (the engine flags a fault
  * in orange). The beam sweeps back and the car is restored. The switch uses two
  * clipping planes that move with the beam — one on the normal car, the mirror one
@@ -82,8 +82,8 @@ export function createHeroScene(container: HTMLElement, opts: { animate: boolean
     t.anisotropy = renderer.capabilities.getMaxAnisotropy();
     return t;
   };
-  const carTex = load("/media/hero-car.png");
-  const holoTex = load("/media/hero-car-holo.png");
+  const carTex = load("/media/hero-car.webp");
+  const holoTex = load("/media/hero-car-holo.webp");
 
   const carMat = keep(new THREE.MeshBasicMaterial({ map: carTex, transparent: true, depthWrite: false, clippingPlanes: [solidClip] }));
   const holoMat = keep(new THREE.MeshBasicMaterial({ map: holoTex, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, clippingPlanes: [holoClip] }));

@@ -33,6 +33,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: node scripts/build-image-variants.mjs
       - run: npx next build
       - run: node scripts/static-redirects.mjs
       - uses: actions/upload-pages-artifact@v3

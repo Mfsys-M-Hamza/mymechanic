@@ -9,9 +9,9 @@ import { HoursList } from "@/components/HoursList";
 import { ClockIcon, DirectionsIcon, PhoneIcon, PinIcon, WhatsAppIcon, socialIcon } from "@/components/Icons";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Contact My Mechanic.pk — Car Workshop in Wah Cantt",
+  title: "Contact Us — Car Mechanic in Wah Cantt",
   description:
-    "Contact My Mechanic.pk at Shop-07, Laiq Ali Chowk or Taj Market, New City Phase-1, Wah Cantt. Call or WhatsApp 0312-5045678. Open Sat–Thu 9 AM–9 PM. Get directions to either branch.",
+    "Call or WhatsApp 0312-5045678. Car workshop at Laiq Ali Chowk and Taj Market, New City Phase-1, Wah Cantt. Open Sat–Thu, 9 AM–9 PM. Get directions.",
   path: "/contact",
 });
 

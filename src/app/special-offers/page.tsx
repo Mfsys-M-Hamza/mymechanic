@@ -12,8 +12,8 @@ const o = client.offer;
 
 export const metadata: Metadata = o.active
   ? pageMetadata({
-      title: "Free Computerized Car Scanning in Wah Cantt — Special Offer",
-      description: `Free computerized scanning and general vehicle check-up at My Mechanic.pk, Wah Cantt, until ${o.endsLabel}. See what's included and the terms, then book by WhatsApp.`,
+      title: "Free Car Scanning in Wah Cantt — Special Offer",
+      description: `Free computerized car scanning and general check-up at My Mechanic.pk, Wah Cantt, until ${o.endsLabel}. See what's included and book on WhatsApp.`,
       path: "/special-offers",
     })
   : { robots: { index: false, follow: false } };
@@ -63,28 +63,28 @@ export default function SpecialOffersPage() {
           <aside className="reveal card h-fit p-6" aria-label="Offer details">
             <p className="eyebrow">Offer details</p>
             <dl className="mt-4 grid gap-4 text-sm">
-              <div className="flex gap-3">
-                <ClockIcon className="mt-0.5 shrink-0 text-brand" width={18} height={18} />
-                <div>
-                  <dt className="text-metal">Valid until</dt>
-                  <dd className="font-semibold text-white">{o.endsLabel}</dd>
-                </div>
+              <div className="relative pl-[30px]">
+                <dt className="text-metal">
+                  <ClockIcon className="absolute left-0 top-0.5 text-brand" width={18} height={18} aria-hidden="true" />
+                  Valid until
+                </dt>
+                <dd className="font-semibold text-white">{o.endsLabel}</dd>
               </div>
-              <div className="flex gap-3">
-                <PinIcon className="mt-0.5 shrink-0 text-brand" width={18} height={18} />
-                <div>
-                  <dt className="text-metal">Where</dt>
-                  {client.branches.map((b) => (
-                    <dd key={b.id} className="font-semibold text-white">{b.label}: {branchAddress(b)}</dd>
-                  ))}
-                </div>
+              <div className="relative pl-[30px]">
+                <dt className="text-metal">
+                  <PinIcon className="absolute left-0 top-0.5 text-brand" width={18} height={18} aria-hidden="true" />
+                  Where
+                </dt>
+                {client.branches.map((b) => (
+                  <dd key={b.id} className="font-semibold text-white">{b.label}: {branchAddress(b)}</dd>
+                ))}
               </div>
-              <div className="flex gap-3">
-                <WhatsAppIcon className="mt-0.5 shrink-0 text-brand" width={18} height={18} />
-                <div>
-                  <dt className="text-metal">How to book</dt>
-                  <dd className="font-semibold text-white">Call or WhatsApp {client.whatsapp.display}</dd>
-                </div>
+              <div className="relative pl-[30px]">
+                <dt className="text-metal">
+                  <WhatsAppIcon className="absolute left-0 top-0.5 text-brand" width={18} height={18} aria-hidden="true" />
+                  How to book
+                </dt>
+                <dd className="font-semibold text-white">Call or WhatsApp {client.whatsapp.display}</dd>
               </div>
             </dl>
             <a href={whatsappHref(waMessage)} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp mt-6 w-full">

@@ -40,8 +40,9 @@ export default function HomePage() {
         </div>
         <div className="container-x relative grid items-center gap-10 pb-16 pt-10 md:pt-14 lg:grid-cols-[1.15fr_1fr] lg:pb-24 lg:pt-16">
           <div>
-            <p className="eyebrow rise">Since {client.foundingYear} · {client.yearsInBusiness} years in Wah Cantt</p>
-            <h1 id="hero-title" className="rise mt-4 text-[2.6rem] font-extrabold uppercase leading-[.95] sm:text-6xl lg:text-7xl" style={{ ["--d" as string]: "90ms" }}>
+            <h1 id="hero-title" className="rise text-[2.6rem] font-extrabold uppercase leading-[.95] sm:text-6xl lg:text-7xl" style={{ ["--d" as string]: "90ms" }}>
+              {/* The search phrase sits in the H1 as its small first line. */}
+              <span className="eyebrow mb-4 flex font-sans leading-normal">Car mechanic in Wah Cantt · since {client.foundingYear}</span>
               <span className="metal-text">Professional Auto Repair</span>{" "}
               <span className="brand-text">&amp; Advanced Vehicle Services</span>
             </h1>

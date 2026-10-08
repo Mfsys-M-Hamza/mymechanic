@@ -52,8 +52,9 @@ const nextConfig: NextConfig = {
     ? {
         output: "export",
         basePath: basePath || undefined,
-        // No image server on static hosting; images are already optimised WebP.
-        images: { unoptimized: true },
+        // No image server on static hosting: next/image picks from smaller WebP copies made by
+        // scripts/build-image-variants.mjs (widths must match WIDTHS there).
+        images: { loader: "custom", loaderFile: "./scripts/image-loader.mjs", deviceSizes: [480, 828, 1200, 1600], imageSizes: [128, 256, 384] },
       }
     : {
         images: { formats: ["image/avif", "image/webp"] },

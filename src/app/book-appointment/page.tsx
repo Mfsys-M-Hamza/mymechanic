@@ -10,7 +10,7 @@ import { ClockIcon, PhoneIcon, WhatsAppIcon } from "@/components/Icons";
 export const metadata: Metadata = pageMetadata({
   title: "Book a Car Repair Appointment in Wah Cantt",
   description:
-    "Request a workshop appointment at My Mechanic.pk, Wah Cantt — Laiq Ali Chowk or New City Phase-1. Fill in your vehicle details and send your request via WhatsApp — our team confirms your time.",
+    "Book a car repair appointment in Wah Cantt at Laiq Ali Chowk or New City Phase-1. Enter your car details, send on WhatsApp and we confirm your time.",
   path: "/book-appointment",
 });
 

@@ -254,17 +254,30 @@ export const client = {
     defaultTitle: "My Mechanic.pk | Car Repair Workshop in Wah Cantt",
     titleTemplate: "%s | My Mechanic.pk",
     defaultDescription:
-      "EFI & hybrid specialists in Wah Cantt since 1998. Two branches — Laiq Ali Chowk and New City Phase-1. Computerized scanning, engine, tuning, AC, brakes and suspension. Rated 4.6★ on Google.",
+      "Car mechanic in Wah Cantt since 1998 — EFI & hybrid specialists. Computerized scanning, tuning, AC, brakes and suspension at two branches. 4.6★ on Google.",
     keywords: [
       "car mechanic Wah Cantt",
-      "EFI specialist Wah Cantt",
-      "hybrid car repair Wah Cantt",
       "car repair workshop Wah Cantt",
+      "auto workshop Wah Cantt",
+      "best car mechanic in Wah Cantt",
       "auto workshop New City Wah",
       "car mechanic Laiq Ali Chowk",
+      "EFI specialist Wah Cantt",
+      "hybrid car repair Wah Cantt",
       "car computerized scanning Wah Cantt",
-      "car repair Taxila",
+      "car scanner Wah Cantt",
+      "engine tuning Wah Cantt",
       "car AC repair Wah Cantt",
+      "brake and suspension repair Wah Cantt",
+      "car inspection Wah Cantt",
+      "used car inspection Wah Cantt",
+      "pre-purchase car inspection",
+      "new car pre-delivery inspection",
+      "engine oil change Wah Cantt",
+      "car repair Taxila",
+      "car mechanic Hasan Abdal",
+      "car workshop near Islamabad and Rawalpindi",
+      "Toyota Honda Suzuki mechanic Wah Cantt",
     ],
     ogImage: "/brand/og-image.jpg",
     locale: "en_PK",
@@ -302,7 +315,10 @@ export const pendingConfirmation = [
   "Final domain name (client.siteUrl)",
 ] as const;
 
-export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || client.siteUrl).replace(/\/$/, "");
+// URL.origin lowercases the host, so canonical, sitemap and robots URLs all match exactly
+// (GitHub Pages builds pass the owner name with capitals).
+const rawSiteUrl = new URL(process.env.NEXT_PUBLIC_SITE_URL || client.siteUrl);
+export const siteUrl = (rawSiteUrl.origin + rawSiteUrl.pathname).replace(/\/$/, "");
 
 export const branchAddress = (b: Branch) => [b.street, b.area].filter(Boolean).join(", ");
 

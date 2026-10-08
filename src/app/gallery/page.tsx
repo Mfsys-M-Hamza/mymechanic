@@ -6,7 +6,7 @@ import { GalleryGrid } from "@/components/GalleryGrid";
 import { CtaBand } from "@/components/ui/CtaBand";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Workshop Gallery — Diagnostics, Repairs & Maintenance",
+  title: "Workshop Gallery — Car Repair in Wah Cantt",
   description:
     "Real photos from My Mechanic.pk in Wah Cantt — our workshop, the team at work, diagnostics and repairs in progress.",
   path: "/gallery",

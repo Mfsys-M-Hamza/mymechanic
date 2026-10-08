@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { client, branchAddress } from "@/config/client";
 import { inspectionFaqs, inspectionSteps } from "@/data/inspections";
-import { pageMetadata } from "@/lib/seo";
+import { absUrl, businessId, pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 import { whatsappHref } from "@/lib/links";
 import { asset } from "@/lib/basePath";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -16,9 +17,9 @@ import type { VisualKey } from "@/data/services";
 import { CheckIcon, PinIcon, ShieldIcon, StarIcon, WhatsAppIcon } from "@/components/Icons";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Car Inspection in Wah Cantt — Used & New Car Inspection",
+  title: "Car Inspection in Wah Cantt — Used & New Cars",
   description:
-    "Pre-purchase used car inspection and new car pre-delivery inspection at My Mechanic.pk, Wah Cantt. Engine, accident check, suspension, electrics, AC and road test. Book online, confirm on WhatsApp.",
+    "Used car pre-purchase and new car pre-delivery inspection in Wah Cantt: engine, accident check, suspension, electrics, AC and road test. Book online.",
   path: "/car-inspection",
 });
 
@@ -84,6 +85,18 @@ const trust = [
 export default function CarInspectionPage() {
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Car Inspection",
+          serviceType: "Used car pre-purchase inspection and new car pre-delivery inspection",
+          description: metadata.description,
+          url: absUrl("/car-inspection"),
+          provider: { "@id": businessId },
+          areaServed: client.serviceAreas.primary.map((c) => ({ "@type": "City", name: c })),
+        }}
+      />
       {/* 1. Booking form at the top */}
       <section className="relative overflow-hidden carbon garage-light border-b border-white/6" aria-labelledby="inspection-title">
         <div id="book" className="container-x grid scroll-mt-24 gap-10 py-10 md:py-14 lg:grid-cols-[1fr_1.25fr] lg:py-16">

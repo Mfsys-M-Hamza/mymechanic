@@ -8,9 +8,9 @@ import { CtaBand } from "@/components/ui/CtaBand";
 import { CheckCircleIcon, WhatsAppIcon } from "@/components/Icons";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Engine Oils, Fluids & Car Care Products in Wah Cantt",
+  title: "Engine Oils & Car Care Products in Wah Cantt",
   description:
-    "Genuine and branded engine oils, transmission fluids, brake fluids, coolants and fuel-system treatments at My Mechanic.pk, Wah Cantt — Toyota, Honda, Liqui Moly, Shell, ZIC, Kixx, Motul and more. Ask on WhatsApp for availability.",
+    "Genuine engine oils, gear oils, brake fluids and coolants in Wah Cantt — Toyota, Honda, Liqui Moly, Shell, ZIC, Kixx, Motul and more. Ask on WhatsApp.",
   path: "/spare-parts",
 });
 

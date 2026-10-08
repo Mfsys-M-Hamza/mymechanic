@@ -6,7 +6,7 @@ import { ReviewsBlock } from "@/components/sections/ReviewsBlock";
 import { CtaBand } from "@/components/ui/CtaBand";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Customer Reviews",
+  title: "Customer Reviews — Car Mechanic in Wah Cantt",
   description: "Genuine customer reviews of My Mechanic.pk, car repair workshop in Wah Cantt. Share your experience and leave a review.",
   path: "/reviews",
 });

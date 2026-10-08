@@ -8,5 +8,9 @@ next-env.d.ts
 qa-report.json
 qa-screenshots
 
+# Responsive image copies, generated before static builds (scripts/build-image-variants.mjs)
+public/_v/
+.image-variants.json
+
 # Previous template client material (archived locally, never published)
 assets/previous-client/

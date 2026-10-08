@@ -9,7 +9,7 @@ import { CtaBand } from "@/components/ui/CtaBand";
 export const metadata: Metadata = pageMetadata({
   title: "Car Repair & Maintenance Services in Wah Cantt",
   description:
-    "All car repair and maintenance services at My Mechanic.pk, Wah Cantt: EFI, computerized scanning & tuning, hybrid, AC, brakes, suspension, oil, battery and more.",
+    "Car repair and maintenance services in Wah Cantt: EFI, computerized scanning & tuning, hybrid, AC, brakes, suspension, oil change, battery and more.",
   path: "/services",
 });
 
@@ -19,7 +19,7 @@ export default function ServicesPage() {
       <PageHero
         crumbs={[{ name: "Services", path: "/services" }]}
         eyebrow="Our services"
-        title={<>Auto repair &amp; <span className="brand-text">advanced services</span></>}
+        title={<>Car repair &amp; maintenance <span className="brand-text">in Wah Cantt</span></>}
         intro={
           <p>
             Every service starts with diagnosis. We explain what we find and share an estimate before any work begins. Final cost and repair time

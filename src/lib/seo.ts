@@ -45,7 +45,7 @@ export function pageMetadata(opts: {
 
 /* ------------------------------------------------------------ JSON-LD */
 
-const businessId = `${siteUrl}/#business`;
+export const businessId = `${siteUrl}/#business`;
 
 export function businessSchema() {
   const a = client.address;
