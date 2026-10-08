@@ -26,14 +26,24 @@ export const metadata: Metadata = pageMetadata({
 const PHOTO = { src: "/media/inspection-corolla-cross.webp", width: 1200, height: 1600, alt: "My Mechanic technician inspecting the engine bay of a Toyota Corolla Cross hybrid with the bonnet open" };
 const PHOTO2 = { src: "/media/inspection-markx.webp", width: 1200, height: 900, alt: "My Mechanic technician checking the engine of a white Toyota Mark X outside the workshop, beside a Liqui Moly sign" };
 const p = client.inspectionPrices;
+/** Car pictures for the charges cards (built by scripts/build-inspection-cars.mjs). */
+const CAR_IMG = {
+  suv: { src: "/inspection/suv.webp", width: 322, height: 212, alt: "Red compact SUV" },
+  sedan: { src: "/inspection/sedan.webp", width: 533, height: 321, alt: "Silver sedan" },
+  hatch: { src: "/inspection/hatchback.webp", width: 479, height: 295, alt: "White Toyota Yaris hatchback" },
+};
+function CarPic({ car, className }: { car: keyof typeof CAR_IMG; className: string }) {
+  const c = CAR_IMG[car];
+  return <Image src={asset(c.src)} alt={c.alt} width={c.width} height={c.height} sizes="200px" className={`object-contain ${className}`} />;
+}
 const priceAsk = (what: string) => whatsappHref(`Hello ${client.name}, what is the price of a ${what}?\n\nVehicle (make/model/year): `);
 
 function Price({ value, ask }: { value: number | null; ask: string }) {
   return value ? (
-    <p className="font-display text-3xl font-extrabold text-white">PKR {value.toLocaleString("en-US")}</p>
+    <p className="whitespace-nowrap font-display text-2xl font-extrabold text-white sm:text-3xl">PKR {value.toLocaleString("en-US")}</p>
   ) : (
-    <a href={ask} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-display text-2xl font-extrabold uppercase text-brand hover:text-brand-bright">
-      <WhatsAppIcon width={20} height={20} /> Ask for price
+    <a href={ask} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 whitespace-nowrap font-display text-xl font-extrabold uppercase text-brand hover:text-brand-bright sm:text-2xl">
+      <WhatsAppIcon width={20} height={20} className="shrink-0" /> Ask for price
     </a>
   );
 }
@@ -117,16 +127,16 @@ export default function CarInspectionPage() {
               <p className="mt-1 text-sm text-metal">At either of our Wah Cantt branches, Saturday – Thursday</p>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 <div className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[.03] p-5 sm:col-span-2">
-                  <div><Price value={p.suv} ask={priceAsk("used SUV / 4x4 / German car inspection")} /><p className="mt-1 text-mist">SUVs, 4x4, Jeeps &amp; German cars</p></div>
-                  <CarSilhouette kind="suv" className="h-20 w-40 shrink-0 text-metal" />
+                  <div className="min-w-0"><Price value={p.suv} ask={priceAsk("used SUV / 4x4 / German car inspection")} /><p className="mt-1 text-mist">SUVs, 4x4, Jeeps &amp; German cars</p></div>
+                  <CarPic car="suv" className="h-20 w-28 shrink-0 sm:h-28 sm:w-44" />
                 </div>
                 <div className="flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-white/[.03] p-5">
-                  <div><Price value={p.mid} ask={priceAsk("used car inspection (1001–2000cc)")} /><p className="mt-1 text-mist">1001cc – 2000cc</p></div>
-                  <CarSilhouette kind="sedan" className="h-14 w-28 shrink-0 text-metal" />
+                  <div className="min-w-0"><Price value={p.mid} ask={priceAsk("used car inspection (1001–2000cc)")} /><p className="mt-1 text-mist">1001cc – 2000cc</p></div>
+                  <CarPic car="sedan" className="h-16 w-24 shrink-0 xl:h-20 xl:w-32" />
                 </div>
                 <div className="flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-white/[.03] p-5">
-                  <div><Price value={p.small} ask={priceAsk("used car inspection (up to 1000cc)")} /><p className="mt-1 text-mist">Up to 1000cc</p></div>
-                  <CarSilhouette kind="hatch" className="h-14 w-28 shrink-0 text-brand" />
+                  <div className="min-w-0"><Price value={p.small} ask={priceAsk("used car inspection (up to 1000cc)")} /><p className="mt-1 text-mist">Up to 1000cc</p></div>
+                  <CarPic car="hatch" className="h-16 w-24 shrink-0 xl:h-20 xl:w-32" />
                 </div>
               </div>
             </div>
