@@ -30,7 +30,7 @@ const CAR_IMG = {
   suv: { src: "/inspection/suv.webp", width: 322, height: 212, alt: "Red compact SUV" },
   sedan: { src: "/inspection/sedan.webp", width: 533, height: 321, alt: "Silver sedan" },
   hatch: { src: "/inspection/hatchback.webp", width: 479, height: 295, alt: "White Toyota Yaris hatchback" },
-  newCar: { src: "/inspection/new-car.webp", width: 352, height: 216, alt: "New silver sedan wrapped in a red gift ribbon" },
+  newCar: { src: "/inspection/new-car-gift.webp", width: 307, height: 299, alt: "New white car wrapped in a red gift ribbon and bow" },
 };
 function CarPic({ car, className }: { car: keyof typeof CAR_IMG; className: string }) {
   const c = CAR_IMG[car];

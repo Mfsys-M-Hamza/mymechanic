@@ -2,7 +2,7 @@
  * Car pictures for the inspection charges cards (/car-inspection).
  *
  * Sources in assets/source/inspection-cars/ must have a transparent background:
- *  - hatchback-yaris-cut.png, sedan-silver-cut.png, new-car-ribbon-cut.png were cut out from the supplied JPEGs
+ *  - hatchback-yaris-cut.png, sedan-silver-cut.png, new-car-bow-cut.png were cut out from the supplied JPEGs
  *    (white / baked-in checkerboard backgrounds) with rembg:
  *      python -c "from rembg import remove, new_session; from PIL import Image;
  *                 s=new_session('isnet-general-use'); remove(Image.open(SRC).convert('RGB'), session=s).save(OUT)"
@@ -22,7 +22,7 @@ const CARS = [
   { name: "hatchback", file: "hatchback-yaris-cut.png" },
   { name: "sedan", file: "sedan-silver-cut.png" },
   { name: "suv", file: "suv-red.png" },
-  { name: "new-car", file: "new-car-ribbon-cut.png" },
+  { name: "new-car-gift", file: "new-car-bow-cut.png" },
 ];
 
 await mkdir(OUT, { recursive: true });
