@@ -134,6 +134,17 @@ export const client = {
   googleRating: { value: 4.6, count: 134, checked: "2026-10" },
 
   /**
+   * Car inspection charges in PKR, shown on /car-inspection. null = not published yet:
+   * the card shows "Ask for price" with a WhatsApp link. Set the owner's real prices here.
+   */
+  inspectionPrices: {
+    suv: null as number | null, // SUVs, 4x4, Jeeps & German cars
+    mid: null as number | null, // 1001cc – 2000cc
+    small: null as number | null, // up to 1000cc
+    newCar: null as number | null, // new car pre-delivery inspection
+  },
+
+  /**
    * Site sections that can be switched off without deleting them.
    * blog: false hides the Blog from the menu, footer, sitemap and service pages, and the
    * /blog pages show "page not found" (noindex). Set to true to publish it again.

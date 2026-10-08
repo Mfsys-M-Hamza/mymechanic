@@ -17,7 +17,7 @@ import { CheckCircleIcon, PinIcon, WhatsAppIcon } from "@/components/Icons";
 
 const CAR_TYPES = [
   { id: "used", label: "Used Car", hint: "Buying a used car", reason: "Buying a used car (pre-purchase)" },
-  { id: "own", label: "My Car", hint: "Checking my own car", reason: "Checking my own car" },
+  { id: "new", label: "New Car", hint: "Pre-delivery check", reason: "New car (pre-delivery inspection)" },
 ] as const;
 type CarType = (typeof CAR_TYPES)[number]["id"];
 
@@ -153,16 +153,16 @@ export function InspectionForm() {
     setDays(bookingDays());
     setNowHour(new Date().getHours());
     const pre = new URLSearchParams(window.location.search).get("type");
-    if (pre && inspections.some((i) => i.id === pre)) setInspection(pre);
-    const onPick = (ev: Event) => setInspection((ev as CustomEvent<string>).detail);
-    window.addEventListener("inspection:pick", onPick);
-    return () => window.removeEventListener("inspection:pick", onPick);
+    if (pre && inspections.some((i) => i.id === pre)) {
+      setInspection(pre);
+      if (pre === "new-car") setCarType("new");
+    }
   }, []);
 
-  // Switching tab suggests the matching inspection (still changeable below).
+  // Switching tab selects the matching inspection (still changeable below).
   function chooseType(t: CarType) {
     setCarType(t);
-    setInspection((cur) => (t === "used" && cur === "general" ? "pre-purchase" : t === "own" && cur === "pre-purchase" ? "general" : cur));
+    setInspection((cur) => (t === "new" ? "new-car" : cur === "new-car" ? "pre-purchase" : cur));
   }
 
   const years = useMemo(() => {

@@ -33,6 +33,13 @@ export const inspections: Inspection[] = [
     service: "general-inspection",
   },
   {
+    id: "new-car",
+    title: "New Car Pre-Delivery Inspection",
+    text: "Collecting a new car? We check it before you accept delivery, so any fault, damage or missing item is caught early.",
+    checks: ["Paint, panels & glass", "Electrics, AC & features", "Fluids, tyres & accessories"],
+    visual: "inspection",
+  },
+  {
     id: "scan",
     title: "Computerized Scan & Diagnostics",
     text: "OBD scan of the engine and supported modules to read stored and pending fault codes and live sensor data.",
@@ -89,7 +96,7 @@ export const inspections: Inspection[] = [
 ];
 
 export const inspectionSteps = [
-  { title: "Book", text: "Fill in the form below or message us on WhatsApp with your car's details and a time that suits you." },
+  { title: "Book", text: "Use the booking form at the top of this page, or message us on WhatsApp with your car's details and a time that suits you." },
   { title: "Confirm", text: "Our team confirms your slot at Laiq Ali Chowk or New City Phase-1 by WhatsApp or phone." },
   { title: "Inspect", text: "Bring the car to the branch. Our mechanics carry out the inspection you chose — you're welcome to watch." },
   { title: "Explain", text: "We walk you through every finding in plain language, and give an estimate for anything that needs fixing." },
@@ -97,31 +104,35 @@ export const inspectionSteps = [
 
 export const inspectionFaqs = [
   {
+    q: "Should I get a used car inspected before buying?",
+    a: "Yes. Many faults — accident repairs, engine or gearbox problems, worn suspension — aren't visible on a test drive. An inspection tells you what you're really buying and gives you facts to negotiate the price.",
+  },
+  {
     q: "How long does a car inspection take?",
     a: "Most inspections take around an hour. A full pre-purchase inspection with a road test can take longer — we'll give you an idea of timing when we confirm your booking.",
   },
   {
-    q: "Can I bring a car I'm planning to buy?",
-    a: "Yes. Bring the car to either of our Wah Cantt branches with the seller's permission. We'll check it and explain what we found before you make a decision.",
+    q: "Can you inspect the car at the seller's location?",
+    a: "Inspections are carried out at our two Wah Cantt branches, where we have the right equipment. Bring the car to Laiq Ali Chowk or New City Phase-1 with the seller's permission.",
   },
   {
-    q: "How much does an inspection cost?",
-    a: "The price depends on your vehicle and the type of inspection you choose, so we don't publish fixed prices. Send us your car's details on WhatsApp and we'll tell you before you book.",
+    q: "Do you inspect hybrid and imported cars?",
+    a: "Yes — we are EFI and hybrid specialists. We regularly work on Japanese imports and hybrids such as the Aqua, Prius, Vezel and Fit, including the hybrid battery and its warning codes.",
   },
   {
-    q: "Do you inspect hybrid cars?",
-    a: "Yes — we are EFI and hybrid specialists. We check the hybrid battery, hybrid warning codes and the battery cooling system on cars such as the Aqua, Prius, Vezel and Fit.",
+    q: "What is a new car pre-delivery inspection?",
+    a: "A check of a brand-new car before you accept delivery — paint and panels, electrics, AC, features, fluids, tyres and accessories — so any problem is raised with the dealer before you sign.",
   },
   {
-    q: "Will you repair the problems you find?",
-    a: "Only if you want us to. After the inspection we explain each finding and give an estimate. No work is done without your approval.",
+    q: "Does an inspection guarantee the car's condition?",
+    a: "No. An inspection reports the car's condition at the time we check it, based on what can be tested without dismantling parts. It is not a warranty against future faults.",
   },
   {
-    q: "Do I need to book in advance?",
-    a: "Booking is recommended so we can reserve a slot for you. We're open Saturday to Thursday, 9 AM to 9 PM, and closed on Fridays.",
+    q: "Can I reschedule my appointment?",
+    a: "Yes. Just message us on WhatsApp at 0312-5045678 and we'll move your booking to another available slot.",
   },
   {
-    q: "Can you check imported and older cars?",
-    a: "Yes. We inspect Japanese imports, local cars and older vehicles. Some very old or rare modules may not be readable with standard diagnostic equipment — we'll tell you if that's the case.",
+    q: "What if the car is sold before the inspection?",
+    a: "No problem — let us know on WhatsApp and we'll cancel the booking, or move it to the next car you want checked.",
   },
 ];
