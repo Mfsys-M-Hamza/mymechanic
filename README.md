@@ -93,7 +93,7 @@ In `client.offer`:
 
 ## Deployment
 
-Set the environment variable **`NEXT_PUBLIC_SITE_URL`** (for example `https://www.mymechanic.pk`) before building.
+Set the environment variable **`NEXT_PUBLIC_SITE_URL`** (the live site is `https://www.mymechanic.online`) before building.
 It is used for canonical URLs, the sitemap, Open Graph tags and structured data. See `.env.example`.
 
 ### GitHub Pages (free static hosting, currently used)

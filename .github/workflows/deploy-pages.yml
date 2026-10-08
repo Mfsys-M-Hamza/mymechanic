@@ -24,7 +24,9 @@ jobs:
       # Project pages live under /<repo-name>. If you add a custom domain, set BASE_PATH
       # to "/" and SITE_URL to https://your-domain in the repo's Actions variables.
       NEXT_PUBLIC_BASE_PATH: ${{ vars.BASE_PATH || format('/{0}', github.event.repository.name) }}
-      NEXT_PUBLIC_SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}', github.repository_owner, github.event.repository.name) }}
+      # Canonical URLs point at the main site (Vercel, www.mymechanic.online), so this
+      # GitHub Pages copy is not indexed as a duplicate.
+      NEXT_PUBLIC_SITE_URL: ${{ vars.SITE_URL || 'https://www.mymechanic.online' }}
       NEXT_TELEMETRY_DISABLED: "1"
     steps:
       - uses: actions/checkout@v4

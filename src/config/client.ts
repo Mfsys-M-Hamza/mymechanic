@@ -74,7 +74,7 @@ export const client = {
   yearsInBusiness: "27+",
 
   /** Public site URL. NEXT_PUBLIC_SITE_URL overrides this at build time. */
-  siteUrl: "https://www.mymechanic.pk",
+  siteUrl: "https://www.mymechanic.online",
 
   /* ------------------------------------------------------------------- Logo */
   logo: {
