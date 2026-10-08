@@ -10,7 +10,6 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Faq } from "@/components/ui/Faq";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { InspectionForm } from "@/components/forms/InspectionForm";
-import { CarSilhouette } from "@/components/visuals/CarSilhouettes";
 import { Animated } from "@/components/visuals/Animated";
 import { MechanicalArt } from "@/components/visuals/Mechanical";
 import type { VisualKey } from "@/data/services";
@@ -31,6 +30,7 @@ const CAR_IMG = {
   suv: { src: "/inspection/suv.webp", width: 322, height: 212, alt: "Red compact SUV" },
   sedan: { src: "/inspection/sedan.webp", width: 533, height: 321, alt: "Silver sedan" },
   hatch: { src: "/inspection/hatchback.webp", width: 479, height: 295, alt: "White Toyota Yaris hatchback" },
+  newCar: { src: "/inspection/new-car.webp", width: 479, height: 328, alt: "New white car with a red gift ribbon" },
 };
 function CarPic({ car, className }: { car: keyof typeof CAR_IMG; className: string }) {
   const c = CAR_IMG[car];
@@ -145,7 +145,7 @@ export default function CarInspectionPage() {
               <p className="mt-1 text-sm text-metal">Before you accept delivery — at our branch</p>
               <div className="mt-6 flex flex-1 flex-col justify-between rounded-2xl border border-white/10 bg-white/[.03] p-5">
                 <div><Price value={p.newCar} ask={priceAsk("new car pre-delivery inspection")} /><p className="mt-1 text-mist">Pre-delivery inspection</p></div>
-                <CarSilhouette kind="new" className="mx-auto mt-6 h-24 w-48 text-[#e7eaee]" />
+                <CarPic car="newCar" className="mx-auto mt-6 h-36 w-52 sm:h-44 sm:w-64" />
               </div>
             </div>
           </div>
