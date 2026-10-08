@@ -40,6 +40,12 @@ export default function CarInspectionPage() {
           </p>
         }
         visual="inspection"
+        photo={{
+          src: "/media/inspection-corolla-cross.webp",
+          width: 1200,
+          height: 1600,
+          alt: "My Mechanic technician inspecting the engine bay of a Toyota Corolla Cross hybrid with the bonnet open",
+        }}
       >
         <div className="flex flex-wrap gap-3">
           <a href="#book" className="btn btn-primary"><CalendarIcon /> Book an inspection</a>
@@ -121,13 +127,23 @@ export default function CarInspectionPage() {
               id="book-title"
               eyebrow="Book an inspection"
               title={<>Book your <span className="brand-text">car inspection</span></>}
-              intro="Fill in the details and press the button — WhatsApp opens with everything ready to send to our team. We'll confirm your slot by WhatsApp or phone."
+              intro="Choose used car or your own car, add the car's details, pick a date and time, then press Confirm — WhatsApp opens with your booking ready to send."
             />
-            <div className="reveal mt-8 card p-6 text-sm text-mist">
-              <p className="font-semibold text-white">Opening hours</p>
-              <p className="mt-1">Saturday – Thursday, 9 AM – 9 PM · Friday closed</p>
-              <p className="mt-4 font-semibold text-white">Prefer to talk?</p>
-              <p className="mt-1">Call or WhatsApp {client.whatsapp.display}</p>
+            <ul className="reveal mt-8 grid gap-3">
+              {[
+                ["Negotiate with confidence", "Know the car's real condition before you pay the seller."],
+                ["Experienced mechanics", "EFI & hybrid specialists, in business since 1998."],
+                ["Every finding explained", "We walk you through the results in plain language."],
+              ].map(([t, d]) => (
+                <li key={t} className="flex gap-3 rounded-2xl border border-white/10 bg-white/[.03] p-4">
+                  <CheckIcon width={18} height={18} className="mt-0.5 shrink-0 text-brand" />
+                  <span><span className="block font-semibold text-white">{t}</span><span className="text-sm text-mist">{d}</span></span>
+                </li>
+              ))}
+            </ul>
+            <div className="reveal mt-4 card p-5 text-sm text-mist">
+              <p><span className="font-semibold text-white">Open:</span> Saturday – Thursday, 9 AM – 9 PM · Friday closed</p>
+              <p className="mt-1"><span className="font-semibold text-white">Prefer to talk?</span> Call or WhatsApp {client.whatsapp.display}</p>
             </div>
           </div>
           <InspectionForm />
