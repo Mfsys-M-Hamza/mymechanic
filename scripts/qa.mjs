@@ -287,8 +287,9 @@ report.externalLinks = [...externalLinks];
     return b ? getComputedStyle(b).position === "fixed" && b.getBoundingClientRect().height < 90 : false;
   });
   bar ? pass("sticky mobile action bar (Call / WhatsApp / Book) present") : fail("mobile action bar missing");
-  const noCanvas = await page.evaluate(() => !document.querySelector("canvas"));
-  noCanvas ? pass("phones get the lightweight photo hero (no WebGL download)") : fail("WebGL loaded on phone viewport");
+  // Phones get the same 3D scene as desktop once it loads; the photo hero is always there first.
+  const photoHero = await page.evaluate(() => !!document.querySelector("[data-anim] img[src*=hero-car]"));
+  photoHero ? pass("phones show the car-photo hero while the 3D scene loads") : fail("phone hero photo missing");
   await page.close();
 }
 {

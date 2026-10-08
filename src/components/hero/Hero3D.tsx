@@ -6,9 +6,9 @@ import { Animated } from "@/components/visuals/Animated";
 import { asset } from "@/lib/basePath";
 
 /**
- * Hero visual. Shows the car photo on a turntable with a CSS scan beam immediately
- * (also the permanent version on phones, low-memory devices, Save-Data, or without
- * WebGL), then upgrades to the Three.js scene on first interaction (or after a delay).
+ * Hero visual. Shows the car photo on a turntable with a CSS scan beam (and hologram) immediately
+ * (also the permanent version on low-memory devices, Save-Data, or without WebGL),
+ * then upgrades to the Three.js scene — on phones too — on first interaction (or after a delay).
  */
 export function Hero3D() {
   const mount = useRef<HTMLDivElement>(null);
@@ -19,7 +19,6 @@ export function Hero3D() {
     if (!el) return;
     const nav = navigator as Navigator & { deviceMemory?: number; connection?: { saveData?: boolean } };
     const capable =
-      window.matchMedia("(min-width: 768px)").matches &&
       !nav.connection?.saveData &&
       (nav.deviceMemory === undefined || nav.deviceMemory >= 4) &&
       (() => {
@@ -67,7 +66,7 @@ export function Hero3D() {
   }, []);
 
   return (
-    <div className="relative mx-auto aspect-[5/3] w-full max-w-[560px] md:aspect-square">
+    <div className="relative mx-auto aspect-square w-full max-w-[560px]">
       <div className="absolute inset-[8%] bg-[radial-gradient(circle,rgb(245_179_1/.22),transparent_68%)]" aria-hidden="true" />
       <Animated className={`absolute inset-0 flex items-center justify-center transition-opacity duration-700 ${ready ? "opacity-0" : "opacity-100"}`}>
         {/* Same concept as the 3D scene: the car on a turntable under a diagnostic scan. */}
@@ -80,7 +79,17 @@ export function Hero3D() {
             height={386}
             priority
             sizes="(min-width: 1024px) 520px, 94vw"
-            className="absolute inset-x-0 top-0 h-auto w-full"
+            className="hero-car-photo absolute inset-x-0 top-0 h-auto w-full"
+          />
+          {/* Behind the beam the car turns into its hologram, as in the 3D scene. */}
+          <Image
+            src={asset("/media/hero-car-holo.webp")}
+            alt=""
+            aria-hidden="true"
+            width={1090}
+            height={386}
+            sizes="(min-width: 1024px) 520px, 94vw"
+            className="hero-car-holo absolute inset-x-0 top-0 h-auto w-full"
           />
           <div className="hero-scan" aria-hidden="true" />
         </div>
