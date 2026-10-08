@@ -24,6 +24,7 @@ export const metadata: Metadata = pageMetadata({
 });
 
 const PHOTO = { src: "/media/inspection-corolla-cross.webp", width: 1200, height: 1600, alt: "My Mechanic technician inspecting the engine bay of a Toyota Corolla Cross hybrid with the bonnet open" };
+const PHOTO2 = { src: "/media/inspection-markx.webp", width: 1200, height: 900, alt: "My Mechanic technician checking the engine of a white Toyota Mark X outside the workshop, beside a Liqui Moly sign" };
 const p = client.inspectionPrices;
 const priceAsk = (what: string) => whatsappHref(`Hello ${client.name}, what is the price of a ${what}?\n\nVehicle (make/model/year): `);
 
@@ -76,7 +77,7 @@ export default function CarInspectionPage() {
       {/* 1. Booking form at the top */}
       <section className="relative overflow-hidden carbon garage-light border-b border-white/6" aria-labelledby="inspection-title">
         <div id="book" className="container-x grid scroll-mt-24 gap-10 py-10 md:py-14 lg:grid-cols-[1fr_1.25fr] lg:py-16">
-          <div>
+          <div className="flex flex-col">
             <Breadcrumbs items={[{ name: "Car Inspection", path: "/car-inspection" }]} />
             <p className="eyebrow mt-6 rise">Car inspection · Wah Cantt</p>
             <h1 id="inspection-title" className="rise mt-3 text-4xl font-extrabold uppercase text-white sm:text-5xl" style={{ ["--d" as string]: "80ms" }}>
@@ -86,10 +87,12 @@ export default function CarInspectionPage() {
               Buying a used car or collecting a new one? Our mechanics check it thoroughly and explain exactly what they find — at Laiq Ali Chowk or
               New City Phase-1.
             </p>
-            <div className="rise relative mt-8 hidden lg:block" style={{ ["--d" as string]: "220ms" }}>
+            <div className="rise relative mt-8 hidden min-h-0 flex-1 flex-col gap-5 lg:flex" style={{ ["--d" as string]: "220ms" }}>
               <div className="absolute -inset-6 bg-[radial-gradient(circle,rgb(245_179_1/.18),transparent_65%)]" aria-hidden="true" />
               <Image src={asset(PHOTO.src)} alt={PHOTO.alt} width={PHOTO.width} height={PHOTO.height} priority sizes="(min-width: 1024px) 40vw, 0px"
-                className="relative aspect-[4/3] w-full rounded-[1.75rem] border-2 border-brand/50 object-cover shadow-deep" />
+                className="relative min-h-[220px] w-full flex-1 basis-0 rounded-[1.75rem] border-2 border-brand/50 object-cover shadow-deep" />
+              <Image src={asset(PHOTO2.src)} alt={PHOTO2.alt} width={PHOTO2.width} height={PHOTO2.height} sizes="(min-width: 1024px) 40vw, 0px"
+                className="relative min-h-[220px] w-full flex-1 basis-0 rounded-[1.75rem] border-2 border-brand/50 object-cover shadow-deep" />
             </div>
           </div>
           <div className="rise" style={{ ["--d" as string]: "120ms" }}>
