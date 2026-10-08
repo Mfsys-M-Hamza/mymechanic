@@ -95,8 +95,11 @@ export function businessSchema() {
   }
   // Only genuine reviews produce rating markup.
   if (reviews.length > 0) {
-    // Aggregate only when every review's star rating is known — never average a partial set.
-    if (reviews.every((r) => r.rating)) {
+    // Use the real Google totals when known — never an average of the few reviews quoted on the site.
+    if (client.googleRating) {
+      const g = client.googleRating;
+      schema.aggregateRating = { "@type": "AggregateRating", ratingValue: g.value.toFixed(1), reviewCount: g.count, bestRating: 5, worstRating: 1 };
+    } else if (reviews.every((r) => r.rating)) {
       const avg = reviews.reduce((s, r) => s + (r.rating ?? 0), 0) / reviews.length;
       schema.aggregateRating = { "@type": "AggregateRating", ratingValue: avg.toFixed(1), reviewCount: reviews.length, bestRating: 5, worstRating: 1 };
     }

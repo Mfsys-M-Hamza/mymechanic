@@ -59,7 +59,7 @@ export function ReviewsSlider({ reviews }: { reviews: Review[] }) {
               </div>
             )}
             {r.title && <p className="mt-3 font-display text-xl font-bold uppercase text-white">{r.title}</p>}
-            <blockquote className={`${r.rating || r.title ? "mt-3" : ""} flex-1 text-soft`}>“{r.text}”</blockquote>
+            <blockquote className={`${r.rating || r.title ? "mt-3" : ""} flex-1 whitespace-pre-line text-soft`}>“{r.text}”</blockquote>
             <footer className="mt-5 text-sm text-metal">
               <span className="font-semibold text-white">{r.name}</span>
               {r.reviewerNote ? ` · ${r.reviewerNote}` : ""}

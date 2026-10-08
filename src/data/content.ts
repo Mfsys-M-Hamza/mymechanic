@@ -80,25 +80,31 @@ export type Review = {
   reviewerNote?: string;
   vehicle?: string;
 };
-/** Full, untruncated reviews from the Branch 2 Google listing (copied October 2026). Star ratings not captured. */
+/**
+ * Reviews from the Branch 1 Google listing (Laiq Ali Chowk), supplied by the owner and copied
+ * word for word (October 2026). Dates are approximate months from Google's "11 months ago" /
+ * "2 years ago". The tag list Google shows under a review ("Services: …") is not quoted.
+ */
 export const reviews: Review[] = [
   {
-    name: "Muhammad Abbas",
-    text: "Great Service, Experienced Staff. They clearly explained what needed to be done and gave a fair estimate. Highly Recommended!!",
-    date: "2025-10",
-    source: "Google",
-  },
-  {
-    name: "Muhammad Ashraf",
-    text: "Mr. Shoib, the chief mechanic is very professional also his team. The quality of work is very good, neat and clean. They are cooperative too.",
+    name: "Nouman Mateen",
+    rating: 5,
+    text: "One of the best Auto Mechanic 🧰 🔧 workshop in town for your car 🚗 either it's local or Japanese.\nStaff 👨🏻‍🔧 is very skilled and well-dressed, rate 🤌🏻of their work is reasonable.\nI prefer (My Mechanic) auto workshop for all mechanical works + advance tuning of my cars and on long experience of mine refer to all, specially people of Wah Cantt, Taxila and Hasanabdal.",
     date: "2025-11",
     source: "Google",
-    reviewerNote: "Local Guide",
   },
   {
-    name: "Ahmed Ali",
-    text: "I am very satisfied with the service nd the machinc is also very cooperative.",
-    date: "2026-03",
+    name: "Talha Khan",
+    rating: 5,
+    text: "I recently had a problem with my cars head gasket, So decided to visit My Mechanic.pk. Mr Umair, his Father and their team are very cooperative and professional. They did a great job for fixing my cars head gasket. Charges ate quite reasonable. Highly recommended and Best workshop for your car issues in Wah cantt.",
+    date: "2024-10",
+    source: "Google",
+  },
+  {
+    name: "Adeel Ahmed",
+    rating: 5,
+    text: "I appreciate mechanic.pk's excellent service and expertise in addressing my car's issues. The team demonstrated efficiency and a strong commitment to customer satisfaction. Highly recommended for their professionalism and a job well done!",
+    date: "2024-10",
     source: "Google",
   },
 ];
