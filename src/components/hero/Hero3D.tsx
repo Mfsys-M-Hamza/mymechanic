@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { MechanicalArt } from "@/components/visuals/Mechanical";
+import Image from "next/image";
 import { Animated } from "@/components/visuals/Animated";
+import { asset } from "@/lib/basePath";
 
 /**
- * Hero visual. Shows a lightweight animated SVG immediately (also the permanent
- * fallback on phones, low-memory devices, Save-Data, or without WebGL), then
- * upgrades to the Three.js scene on first interaction (or after a short delay).
+ * Hero visual. Shows the car photo on a turntable with a CSS scan beam immediately
+ * (also the permanent version on phones, low-memory devices, Save-Data, or without
+ * WebGL), then upgrades to the Three.js scene on first interaction (or after a delay).
  */
 export function Hero3D() {
   const mount = useRef<HTMLDivElement>(null);
@@ -45,7 +46,7 @@ export function Hero3D() {
           handle = createHeroScene(el, { animate: !reduce });
           setReady(true);
         })
-        .catch(() => {/* keep SVG fallback */});
+        .catch(() => {/* keep the photo version */});
     };
 
     // Load the WebGL scene on the visitor's first interaction, or after a quiet
@@ -66,13 +67,22 @@ export function Hero3D() {
   }, []);
 
   return (
-    <div className="relative aspect-square w-full max-w-[560px] mx-auto">
+    <div className="relative mx-auto aspect-[5/3] w-full max-w-[560px] md:aspect-square">
       <div className="absolute inset-[8%] bg-[radial-gradient(circle,rgb(245_179_1/.22),transparent_68%)]" aria-hidden="true" />
-      <Animated className={`absolute inset-0 transition-opacity duration-700 ${ready ? "opacity-0" : "opacity-100"}`}>
-        <div className="relative h-full w-full">
-          {/* Same concept as the 3D scene: a car under a diagnostic scan. */}
-          <MechanicalArt kind="inspection" className="absolute inset-[6%] h-[88%] w-[88%] drop-shadow-[0_20px_40px_rgba(0,0,0,.45)]" />
-          <MechanicalArt kind="scanner" className="absolute right-[2%] top-[4%] h-[28%] w-[28%] opacity-90" />
+      <Animated className={`absolute inset-0 flex items-center justify-center transition-opacity duration-700 ${ready ? "opacity-0" : "opacity-100"}`}>
+        {/* Same concept as the 3D scene: the car on a turntable under a diagnostic scan. */}
+        <div className="relative aspect-[1090/520] w-[94%]">
+          <div className="hero-turntable absolute inset-x-0 bottom-[16%] h-[34%]" aria-hidden="true" />
+          <Image
+            src={asset("/media/hero-car.webp")}
+            alt="Yellow saloon car on the diagnostic turntable"
+            width={1090}
+            height={386}
+            priority
+            sizes="(min-width: 1024px) 520px, 94vw"
+            className="absolute inset-x-0 top-0 h-auto w-full"
+          />
+          <div className="hero-scan" aria-hidden="true" />
         </div>
       </Animated>
       <div ref={mount} className={`absolute inset-0 transition-opacity duration-700 ${ready ? "opacity-100" : "opacity-0"}`} />

@@ -288,7 +288,7 @@ report.externalLinks = [...externalLinks];
   });
   bar ? pass("sticky mobile action bar (Call / WhatsApp / Book) present") : fail("mobile action bar missing");
   const noCanvas = await page.evaluate(() => !document.querySelector("canvas"));
-  noCanvas ? pass("phones get the lightweight SVG hero (no WebGL download)") : fail("WebGL loaded on phone viewport");
+  noCanvas ? pass("phones get the lightweight photo hero (no WebGL download)") : fail("WebGL loaded on phone viewport");
   await page.close();
 }
 {
@@ -326,8 +326,8 @@ report.externalLinks = [...externalLinks];
   await p2.goto(`${BASE}${BP}/`, { waitUntil: "networkidle0" });
   await p2.mouse.move(400, 300);
   await new Promise((r) => setTimeout(r, 3000));
-  const fb = await p2.evaluate(() => !document.querySelector("canvas") && !!document.querySelector("[data-anim] svg"));
-  fb ? pass("no-WebGL browsers keep the animated SVG fallback") : fail("no-WebGL fallback failed");
+  const fb = await p2.evaluate(() => !document.querySelector("canvas") && !!document.querySelector("[data-anim] img[src*=hero-car]"));
+  fb ? pass("no-WebGL browsers keep the car-photo hero") : fail("no-WebGL fallback failed");
   await p2.close();
 }
 

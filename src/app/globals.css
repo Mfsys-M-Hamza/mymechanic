@@ -255,6 +255,29 @@ h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: 0.
 .card-hover:hover .tilt { transform: perspective(600px) rotateX(8deg) rotateY(-10deg) translateZ(10px); }
 
 /* ------------------------------------------------ Reduced motion */
+/* Hero (photo version): turntable rings under the car and a scan beam sweeping across it.
+   The beam is hidden at rest, so with reduced motion it simply never appears. */
+.hero-turntable {
+  border-radius: 50%;
+  border: 1.5px solid rgb(245 179 1 / .55);
+  background:
+    radial-gradient(ellipse at center, rgb(245 179 1 / .16), transparent 62%),
+    repeating-radial-gradient(ellipse at center, transparent 0 11%, rgb(245 179 1 / .22) 11% 11.6%);
+  box-shadow: 0 0 34px rgb(245 179 1 / .18), inset 0 0 22px rgb(245 179 1 / .12);
+}
+.hero-scan {
+  position: absolute; top: -4%; bottom: 18%; left: 2%; width: 3px; opacity: 0; border-radius: 3px;
+  background: linear-gradient(transparent, #ffd24a 18%, #f5b301 82%, transparent);
+  box-shadow: 0 0 18px 5px rgb(245 179 1 / .45);
+  animation: hero-scan 5s ease-in-out 1s infinite;
+}
+@keyframes hero-scan {
+  0% { left: 2%; opacity: 0; }
+  8% { opacity: 1; }
+  45% { left: 97%; opacity: 1; }
+  52%, 100% { left: 97%; opacity: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
